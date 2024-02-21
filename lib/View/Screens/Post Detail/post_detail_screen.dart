@@ -1,0 +1,134 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../Search/search_main_screen.dart';
+
+class PostDetailScreen extends StatefulWidget {
+  const PostDetailScreen({Key? key}) : super(key: key);
+
+  @override
+  State<PostDetailScreen> createState() => _PostDetailScreenState();
+}
+
+class _PostDetailScreenState extends State<PostDetailScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        height: 100.h,
+        width: 100.w,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 5.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 8.h,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: SvgPicture.asset('assets/svgs/arrowbutton.svg',height: 4.h,)),
+                        SizedBox(width: 3.w,),
+                        Text(
+                          'Back',
+                          style: TextStyle(
+                            color: Color(0xff4AB866),
+                            fontSize: 13.sp
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              height: 2.5.h,
+                              width: 5.w,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.green.shade50
+                              ),
+                              child: Center(
+                                child: Icon(Icons.arrow_back_ios_new_outlined,size: 1.5.h,color: Color(0xff4AB866),),
+                              ),
+                            ),
+                            SizedBox(height: 0.5.h,),
+                            Text(
+                              'Previous',
+                              style: TextStyle(
+                                  color: Color(0xff4AB866),
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.bold
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5 .w,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 2.5.h,
+                              width: 5.w,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.green.shade50
+                              ),
+                              child: Center(
+                                child: Icon(Icons.arrow_forward_ios,size: 1.5.h,color: Color(0xff4AB866),),
+                              ),
+                            ),
+                            SizedBox(height: 0.5.h,),
+                            Text(
+                              'Next',
+                              style: TextStyle(
+                                  color: Color(0xff4AB866),
+                                  fontSize: 11.sp,
+                                fontWeight: FontWeight.bold
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(height: 4.h,),
+                Text(
+                  'Why Volcano Explodes ? As magma rises and pressure is released, gas bubbles (mainly of water vapor and carbon dioxide) form and expand rapidly, causing explosions. Magmas with high silica content tend to erupt violently, because they are viscious. They form volcanoes like Krakatau and Tambora in Indonesia, and Mount Rainier and Mount St.',
+                  //maxLines: 10,
+                ),
+                SizedBox(height: 2.h,),
+                Text(
+                  'Why Volcano Explodes ?',
+                  style: TextStyle(
+                      color: Color(0xff4AB866),
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                Text(
+                  'As magma rises and pressure is released, gas bubbles (mainly of water vapor and carbon dioxide) form and expand rapidly, causing explosions....',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 4,
+                  style: TextStyle(
+                      overflow: TextOverflow.ellipsis,
+                      fontSize: 12.sp,
+                      color: Color(0xff585858)
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
