@@ -17,8 +17,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   int index = 1;
-   TextEditingController _emailController = TextEditingController();
-   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   bool _isButtonEnabled = false;
 
   @override
@@ -42,7 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,17 +57,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: Colors.blueGrey,
                 child: Stack(
                   children: [
-                    Image(
-                      image: AssetImage('assets/asset/login_back.png',),
-                      fit: BoxFit.fitWidth,
+                    Container(
+                      padding: EdgeInsets.only(bottom: 6.5.h),
+                      width: 100.w,
+                      child: Image(
+                        image: AssetImage(
+                          'assets/asset/login_back.png',
+                        ),
+                        fit: BoxFit.fitWidth,
+                      ),
                     ),
                     Positioned(
                         right: 10.w,
-                        top: 10.h,
+                        top: 9.h,
                         child: Image(
-                      image: AssetImage('assets/asset/personn.png'),
+                          image: AssetImage('assets/asset/person.png'),
                           height: 15.h,
-                    )),
+                        )),
                     Positioned(
                         bottom: 0,
                         child: Container(
@@ -86,22 +91,30 @@ class _LoginScreenState extends State<LoginScreen> {
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: index == 1? AssetImage('assets/asset/leftgreen.png'):AssetImage('assets/asset/leftwhite.png')
-                                      )
-                                    ),
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: index == 1
+                                                ? AssetImage(
+                                                    'assets/asset/leftgreen.png',
+                                                  )
+                                                : AssetImage(
+                                                    'assets/asset/leftwhite.png'))),
                                     child: Center(
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          SizedBox(height: 6.h,),
+                                          SizedBox(
+                                            height: 6.h,
+                                          ),
                                           Text(
                                             'Log in',
                                             style: TextStyle(
-                                              color: index == 1 ? Colors.white : Colors.green,
-                                              fontSize: 18.sp,
-                                              fontWeight: FontWeight.bold
-                                            ),
+                                                color: index == 1
+                                                    ? Colors.white
+                                                    : Colors.green,
+                                                fontSize: 18.sp,
+                                                fontWeight: FontWeight.bold),
                                           ),
                                         ],
                                       ),
@@ -119,21 +132,28 @@ class _LoginScreenState extends State<LoginScreen> {
                                   child: Container(
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
-                                            image: index == 2 ? AssetImage('assets/asset/rightgreen.png'):AssetImage('assets/asset/rightwhite.png')
-                                        )
-                                    ),
+                                            fit: BoxFit.cover,
+                                            image: index == 2
+                                                ? AssetImage(
+                                                    'assets/asset/rightgreen.png')
+                                                : AssetImage(
+                                                    'assets/asset/rightwhite.png'))),
                                     child: Center(
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          SizedBox(height: 6.h,),
+                                          SizedBox(
+                                            height: 6.h,
+                                          ),
                                           Text(
                                             'Sign Up',
                                             style: TextStyle(
-                                                color: index == 2 ? Colors.white : Colors.green,
+                                                color: index == 2
+                                                    ? Colors.white
+                                                    : Colors.green,
                                                 fontSize: 18.sp,
-                                                fontWeight: FontWeight.bold
-                                            ),
+                                                fontWeight: FontWeight.bold),
                                           ),
                                         ],
                                       ),
@@ -147,122 +167,181 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 2.h,),
-              Image(image: AssetImage('assets/asset/logoo.png'), width: 75.w,),
-              Container(
-                height: 3.h,
-                width: 100.w,
-                child: Center(
-                  child: SvgPicture.asset('assets/svgs/Cause-Bridge-Logo_2.svg',
-                      fit: BoxFit.fill),
-                ),
+              SizedBox(
+                height: 2.h,
               ),
-              SizedBox(height: 1.h,),
-              index == 1 ?
-              Column(
-                children: [
-                   CustomTextFields(
-                    //controller: emailController,
-                    hintText: 'Email',
-                    controller: _emailController,
-                    //validator: validate_email_phone,
-                  ),
-                  SizedBox(height: 2.h,),
-                   CustomTextFields(
-                    //controller: emailController,
-                    hintText: 'Password',
-                    controller: _passwordController,
-                    //validator: validate_email_phone,
-                  ),
-                  SizedBox(height: 2.h,),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ChooseInterestScreen(),));
-                    },
-                    child: Container(
-                      height: 6.5.h,
-                      width: 80.w,
-                      decoration: BoxDecoration(
-                        color: _isButtonEnabled ? Colors.green : Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(width: 2, color: _isButtonEnabled ? Colors.transparent : Colors.green)
-                      ),
-                      child: Center(
-                        child: Text('Log in',
-                            style:  TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: _isButtonEnabled ? Colors.white : Colors.green,
-                                fontSize: 16)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 2.h,),
-                  Text.rich(
-                    TextSpan(
-                      style: const TextStyle(
-                        //fontFamily: AppFonts.segoeui,
-                        fontSize: 12,
-                        color: Color(0xff000000),
-                      ),
+              Image(
+                image: AssetImage('assets/asset/logoo.png'),
+                width: 75.w,
+                height: 10.5.h,
+              ),
+              SizedBox(
+                height: 3.h,
+              ),
+              index == 1
+                  ? Column(
                       children: [
-                        TextSpan(
-                            text: 'Do not have an Account ?   ',
-                            style: TextStyle(
-                              color:
-                              Theme.of(context).brightness == Brightness.light
-                                  ? Colors.black
-                                  : Colors.white,
-                            )),
-                        TextSpan(
-                          recognizer: new TapGestureRecognizer()..onTap = () => {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen()),)
+                        CustomTextFields(
+                          //controller: emailController,
+                          labelText: 'Email',
+                          controller: _emailController,
+                          //validator: validate_email_phone,
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        CustomTextFields(
+                          //controller: emailController,
+                          labelText: 'Password',
+                          visible: true,
+                          controller: _passwordController,
+                          //validator: validate_email_phone,
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChooseInterestScreen(),
+                                ));
                           },
-                          text: 'Sign up',
-                          style: TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14
-                            //fontFamily: AppFonts.segoeui,
+                          child: Container(
+                            height: 6.5.h,
+                            width: 80.w,
+                            decoration: BoxDecoration(
+                                color: _isButtonEnabled
+                                    ? Colors.green
+                                    : Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                    width: 1.7,
+                                    color: _isButtonEnabled
+                                        ? Colors.transparent
+                                        : Colors.green)),
+                            child: Center(
+                              child: Text('Log in',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'AlfaSlabOne',
+                                      color: _isButtonEnabled
+                                          ? Colors.white
+                                          : Colors.green,
+                                      fontSize: 13)),
+                            ),
                           ),
                         ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Text.rich(
+                          TextSpan(
+                            style: const TextStyle(
+                              //fontFamily: AppFonts.segoeui,
+                              fontSize: 12,
+                              color: Color(0xff000000),
+                            ),
+                            children: [
+                              TextSpan(
+                                  text: 'Don\'t have an Account ?   ',
+                                  style: TextStyle(
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Colors.black
+                                        : Colors.white,
+                                  )),
+                              TextSpan(
+                                recognizer: new TapGestureRecognizer()
+                                  ..onTap = () => {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SignUpScreen()),
+                                        )
+                                      },
+                                text: 'Sign up',
+                                style: TextStyle(
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14
+                                    //fontFamily: AppFonts.segoeui,
+                                    ),
+                              ),
+                            ],
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12.w),
+                          child: const Row(
+                            children: [
+                              Expanded(
+                                  child: Divider(
+                                height: 2,
+                                thickness: 1,
+                              )),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text('Or'),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                  child: Divider(
+                                height: 2,
+                                thickness: 1,
+                              ))
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              height: 6.h,
+                              width: 32.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: Colors.green, width: 1)),
+                              child: Center(
+                                child: Image(
+                                  image: AssetImage(
+                                      'assets/asset/google_logo.png'),
+                                  height: 4.h,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 6.h,
+                              width: 32.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: Colors.green, width: 1)),
+                              child: Center(
+                                child: Image(
+                                  image:
+                                      AssetImage('assets/asset/apple_logo.png'),
+                                  height: 4.h,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
                       ],
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 2.h,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        height: 6.h,
-                        width: 32.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.green,width: 1
-                            )
-                        ),
-                        child: Center(
-                          child: Image(image: AssetImage('assets/asset/google_logo.png'),height: 4.h,),
-                        ),
-                      ),
-
-                      Container(
-                        height: 6.h,
-                        width: 32.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.green,width: 1
-                            )
-                        ),
-                        child: Center(
-                          child: Image(image: AssetImage('assets/asset/apple_logo.png'),height: 4.h,),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ):
-              SignUpScreen()
+                    )
+                  : SignUpScreen()
             ],
           ),
         ),

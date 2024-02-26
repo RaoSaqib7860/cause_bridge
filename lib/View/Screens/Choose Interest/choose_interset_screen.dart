@@ -14,6 +14,15 @@ class ChooseInterestScreen extends StatefulWidget {
 }
 
 class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
+  List list_of_interest = [
+    'Math & Logic',
+    'Business',
+    'Personal Development',
+    'Computer Science',
+    'Data Science',
+    'Life Science'
+  ];
+  String? selected_interest;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,41 +33,65 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 10.h,),
-              Image(image: AssetImage('assets/asset/group2.png'),width: 70.w,),
-              SizedBox(height: 2.h,),
+              SizedBox(
+                height: 10.h,
+              ),
+              Image(
+                image: AssetImage('assets/asset/group2.png'),
+                width: 70.w,
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
               Text(
                 'Choose your Intrest',
                 style: TextStyle(
-                  color: Color(0xff4AB866),
-                  fontSize: 17.sp,
-                  fontWeight: FontWeight.bold
-                ),
+                    color: Color(0xff4AB866),
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 0.5.h,),
+              SizedBox(
+                height: 0.5.h,
+              ),
               Text(
                 'Choose At least 3 or more',
                 style: TextStyle(
-                    color: Color(0xff6A6A6A),
-                    fontSize: 14.sp,
-                    //fontWeight: FontWeight.bold
+                  color: Color(0xff6A6A6A),
+                  fontSize: 14.sp,
+                  //fontWeight: FontWeight.bold
                 ),
               ),
-              SizedBox(height: 6.h,),
-              checkboxContainer(text: 'Math & Logic'),
-              checkboxContainer(text: 'Business'),
-              checkboxContainer(text: 'Personal Development'),
-              checkboxContainer(text: 'Computer Science'),
-              checkboxContainer(text: 'Data Science'),
-              checkboxContainer(text: 'Life Science'),
-              SizedBox(height: 2.h,),
+              SizedBox(
+                height: 6.h,
+              ),
+              Column(
+                  children: list_of_interest.map((e) {
+                return InkWell(
+                  child: selected_interest == e
+                      ? selected_checkboxContainer(text: '$e')
+                      : checkboxContainer(text: '$e'),
+                  onTap: () {
+                    selected_interest = e;
+                    setState(() {});
+                  },
+                );
+              }).toList()),
+              SizedBox(
+                height: 2.h,
+              ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => BottomSheetScreen(),));
+                  if (selected_interest != null) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BottomSheetScreen(),
+                        ));
+                  }
                 },
                 child: Container(
                   height: 6.7.h,
-                  width: 85.w,
+                  width: 82.w,
                   decoration: BoxDecoration(
                     color: Color(0xff4AB866),
                     borderRadius: BorderRadius.circular(7),
@@ -67,10 +100,11 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
                     child: Text(
                       'Continue',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17.sp,
-                        //fontWeight: FontWeight.bold
-                      ),
+                          color: Colors.white,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500
+                          //fontWeight: FontWeight.bold
+                          ),
                     ),
                   ),
                 ),
@@ -79,43 +113,84 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
           ),
         ),
       ),
-
     );
   }
 
-  Widget checkboxContainer({String? text}){
+  Widget checkboxContainer({String? text}) {
     return Column(
       children: [
         Container(
           height: 7.h,
-          width: 85.w,
+          width: 82.w,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(5),
           ),
           child: Center(
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 4.w),
+              padding: EdgeInsets.symmetric(horizontal: 4.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     text!,
                     style: TextStyle(
-                      color: Color(0xff4AB866),
-                      fontSize: 17.sp,
-                      //fontWeight: FontWeight.bold
-                    ),
+                        color: Color(0xff4AB866),
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w500),
                   ),
-                  SvgPicture.asset('assets/svgs/checkbox.svg',width: 5.5.w,),
+                  SvgPicture.asset(
+                    'assets/svgs/checkbox.svg',
+                    width: 5.5.w,
+                  ),
                 ],
               ),
             ),
           ),
         ),
-        SizedBox(height: 2.h,)
+        SizedBox(
+          height: 2.h,
+        )
       ],
     );
   }
 
+  Widget selected_checkboxContainer({String? text}) {
+    return Column(
+      children: [
+        Container(
+          height: 7.h,
+          width: 82.w,
+          decoration: BoxDecoration(
+            color: Color(0xff4AB866),
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 4.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    text!,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  SvgPicture.asset(
+                    'assets/svgs/selected_checkbox.svg',
+                    width: 5.5.w,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 2.h,
+        )
+      ],
+    );
+  }
 }

@@ -16,7 +16,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
@@ -44,7 +43,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void _checkButtonStatus() {
     setState(() {
       _isButtonEnabled = _emailController.text.isNotEmpty &&
-          _passwordController.text.isNotEmpty && _nameController.text.isNotEmpty &&
+          _passwordController.text.isNotEmpty &&
+          _nameController.text.isNotEmpty &&
           _userNameController.text.isNotEmpty;
     });
   }
@@ -53,51 +53,64 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-         CustomTextFields(
+        CustomTextFields(
           //controller: emailController,
-          hintText: 'Name',
+          labelText: 'Name',
           controller: _nameController,
           //validator: validate_email_phone,
         ),
-        SizedBox(height: 2.h,),
-         CustomTextFields(
+        SizedBox(
+          height: 2.h,
+        ),
+        CustomTextFields(
           //controller: emailController,
-          hintText: 'User Name',
+          labelText: 'User Name',
           controller: _userNameController,
           //validator: validate_email_phone,
         ),
-        SizedBox(height: 2.h,),
-         CustomTextFields(
+        SizedBox(
+          height: 2.h,
+        ),
+        CustomTextFields(
           //controller: emailController,
-          hintText: 'Email',
+          labelText: 'Email',
           controller: _emailController,
           //validator: validate_email_phone,
         ),
-        SizedBox(height: 2.h,),
-         CustomTextFields(
+        SizedBox(
+          height: 2.h,
+        ),
+        CustomTextFields(
           //controller: emailController,
-          hintText: 'Password',
+          labelText: 'Password',
+          visible: true,
           controller: _passwordController,
           //validator: validate_email_phone,
         ),
-        SizedBox(height: 2.h,),
+        SizedBox(
+          height: 2.h,
+        ),
         Container(
           height: 6.5.h,
           width: 80.w,
           decoration: BoxDecoration(
               color: _isButtonEnabled ? Colors.green : Colors.white,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(width: 2, color: _isButtonEnabled ? Colors.transparent : Colors.green)
-          ),
+              border: Border.all(
+                  width: 1.7,
+                  color: _isButtonEnabled ? Colors.transparent : Colors.green)),
           child: Center(
             child: Text('Sign Up',
-                style:  TextStyle(
+                style: TextStyle(
                     fontWeight: FontWeight.w500,
+                    fontFamily: 'AlfaSlabOne',
                     color: _isButtonEnabled ? Colors.white : Colors.green,
-                    fontSize: 16)),
+                    fontSize: 13)),
           ),
         ),
-        SizedBox(height: 2.h,),
+        SizedBox(
+          height: 2.h,
+        ),
         Text.rich(
           TextSpan(
             style: const TextStyle(
@@ -109,29 +122,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
               TextSpan(
                   text: 'Already have an Account ?   ',
                   style: TextStyle(
-                    color:
-                    Theme.of(context).brightness == Brightness.light
+                    color: Theme.of(context).brightness == Brightness.light
                         ? Colors.black
                         : Colors.white,
                   )),
               TextSpan(
-                recognizer: new TapGestureRecognizer()..onTap = () =>{
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()),)
-                },
+                recognizer: new TapGestureRecognizer()
+                  ..onTap = () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
+                        )
+                      },
                 text: 'Log In',
                 style: TextStyle(
                     color: Colors.green,
                     fontWeight: FontWeight.w700,
                     fontSize: 14
-                  //fontFamily: AppFonts.segoeui,
-                ),
+                    //fontFamily: AppFonts.segoeui,
+                    ),
               ),
             ],
           ),
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 2.h,),
-
+        SizedBox(
+          height: 2.h,
+        ),
       ],
     );
   }

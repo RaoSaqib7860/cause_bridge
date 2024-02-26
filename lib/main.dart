@@ -14,20 +14,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  FlutterSizer(
-        builder: (context, orientation, screenType) {
-          return MaterialApp(
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
-            home: const SplashScreen(),
-            //BottomSheetScreen(),
-            debugShowCheckedModeBanner: false,
-          );
-        }
-    );
+    return FlutterSizer(builder: (context, orientation, screenType) {
+      return MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: Colors.green.withOpacity(0.5)),
+          // useMaterial3: true,
+        ),
+        home: const SplashScreen(),
+        themeMode: ThemeMode.light,
+        //BottomSheetScreen(),
+        debugShowCheckedModeBanner: false,
+      );
+    });
   }
 }
-

@@ -17,19 +17,19 @@ class CustomTextFields extends StatefulWidget {
   final Function(String)? onchaged;
   const CustomTextFields(
       {Key? key,
-        this.hintText,
-        this.controller,
-        this.labelText,
-        this.suffixIcon,
-        this.readOnly = false,
-        this.visible = false,
-        this.prefixIcon,
-        this.keyboredType = TextInputType.text,
-        this.enable = true,
-        this.onchaged = null,
-        this.validator = null,
-        this.max_length,
-        this.padding = 20})
+      this.hintText,
+      this.controller,
+      this.labelText,
+      this.suffixIcon,
+      this.readOnly = false,
+      this.visible = false,
+      this.prefixIcon,
+      this.keyboredType = TextInputType.text,
+      this.enable = true,
+      this.onchaged = null,
+      this.validator = null,
+      this.max_length,
+      this.padding = 20})
       : super(key: key);
 
   @override
@@ -39,56 +39,50 @@ class CustomTextFields extends StatefulWidget {
 class _CustomTextFieldsState extends State<CustomTextFields> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: widget.padding!),
-      child: Container(
-        height: 6.5.h,
-        width: 80.w,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.green,width: 2
-          )
-        ),
-        child: TextFormField(
-          controller: widget.controller,
-          cursorColor: Colors.black,
-          keyboardType: widget.keyboredType,
-          obscureText: widget.visible!,
-          readOnly: widget.readOnly!,
-          enabled: widget.enable,
-          maxLength: widget.max_length,
-          onChanged: widget.onchaged,
-          validator: widget.validator == null ? null : widget.validator,
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              // focusedBorder: UnderlineInputBorder(
-              //   borderSide: BorderSide(width: 0.7, color: Colors.black26),
-              // ),
-              // errorBorder: UnderlineInputBorder(
-              //   borderSide: BorderSide(width: 0.7, color: Colors.red),
-              // ),
-              // disabledBorder: UnderlineInputBorder(
-              //   borderSide: BorderSide(width: 0.7, color: Colors.black26),
-              // ),
-              // enabledBorder: UnderlineInputBorder(
-              //   borderSide: BorderSide(width: 0.7, color: Colors.black26),
-              // ),
-              contentPadding:
-              EdgeInsets.only(left: 14, bottom: 11, top: 11, right: 5),
-              labelText: widget.labelText,
-              hintText: widget.hintText,
-              suffixIcon: widget.suffixIcon,
-              prefixIcon: widget.prefixIcon,
-              labelStyle: TextStyle(
-                //fontFamily: AppFonts.segoeui,
-                fontSize: 13,
-                  color: Colors.green
-              ),
-              hintStyle: TextStyle(
-                color: Colors.green,
-                fontSize: 13,
-              )),
-        ),
+    return SizedBox(
+      width: 80.w,
+      height: 6.5.h,
+      child: TextFormField(
+        controller: widget.controller,
+        cursorColor: Colors.black,
+        keyboardType: widget.keyboredType,
+        obscureText: widget.visible!,
+        readOnly: widget.readOnly!,
+        enabled: widget.enable,
+        maxLength: widget.max_length,
+        onChanged: widget.onchaged,
+        validator: widget.validator == null ? null : widget.validator,
+        decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.green, width: 1.7),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.green, width: 1.7),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.green, width: 1.7),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.green, width: 1.7),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.green, width: 1.7),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            //contentPadding: EdgeInsets.only(left: 10, right: 5),
+            labelText: widget.labelText,
+            hintText: widget.hintText,
+            suffixIcon: widget.suffixIcon,
+            prefixIcon: widget.prefixIcon,
+            labelStyle: TextStyle(fontSize: 13, color: Colors.green),
+            hintStyle: TextStyle(
+              color: Colors.green,
+              fontSize: 13,
+            )),
       ),
     );
   }
