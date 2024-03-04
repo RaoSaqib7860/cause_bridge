@@ -104,7 +104,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontFamily: 'AlfaSlabOne',
-                    color: _isButtonEnabled ? Colors.white : Colors.green,
+                    color: _isButtonEnabled ? Colors.white : Color(0xff4AB866),
                     fontSize: 13)),
           ),
         ),

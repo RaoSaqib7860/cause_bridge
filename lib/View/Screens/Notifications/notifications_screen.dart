@@ -18,7 +18,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       body: Container(
         height: 100.h,
         width: 100.w,
-        color: Colors.green,
+        color: Color(0xff4AB866),
         child: Column(
           children: [
             SizedBox(height: 10.h,),
@@ -37,6 +37,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 17.sp,
+                      fontWeight: FontWeight.bold,
                     ),
                   )
                 ],
@@ -65,7 +66,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                                 //height: 6.h,
                                 //width: 95.w,
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                                  padding:  EdgeInsets.symmetric(horizontal: 4.w),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
@@ -95,17 +96,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                                                   style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 13.sp,
-                                                      fontWeight: FontWeight.bold
+
                                                   ),
                                                 ),
+                                                SizedBox(height: 0.4.h,),
                                                 Text(
-                                                  'Wh Volcano Explodes ?',
+                                                  'Why Volcano Explodes ?',
                                                   style: TextStyle(
                                                       color: Color(0xff4AB866),
-                                                      fontSize: 15.sp,
-                                                      fontWeight: FontWeight.bold
+                                                      fontSize: 14.sp,
+                                                    fontFamily: 'AlfaSlabOne',
                                                   ),
                                                 ),
+                                                SizedBox(height: 0.4.h,),
                                                 Text(
                                                   'Like your research',
                                                   style: TextStyle(

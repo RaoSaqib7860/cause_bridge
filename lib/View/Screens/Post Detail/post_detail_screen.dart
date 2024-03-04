@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../Bottom Sheet/bottom_sheet.dart';
+import '../Feeds Screen/new_feed_screen.dart';
 import '../Search/search_main_screen.dart';
+import 'package:get/get.dart';
 
 class PostDetailScreen extends StatefulWidget {
   const PostDetailScreen({Key? key}) : super(key: key);
@@ -12,6 +15,7 @@ class PostDetailScreen extends StatefulWidget {
 }
 
 class _PostDetailScreenState extends State<PostDetailScreen> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +35,10 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                     Row(
                       children: [
                         GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
+                            onTap:
+                                () {
+                              //Navigator.push(context, MaterialPageRoute(builder: (context) => NewFeedScreen(),));
+                              Get.offAll(()=>BottomSheetScreen());
                             },
                             child: SvgPicture.asset('assets/svgs/arrowbutton.svg',height: 4.h,)),
                         SizedBox(width: 3.w,),
@@ -106,22 +112,58 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                   //maxLines: 10,
                 ),
                 SizedBox(height: 2.h,),
-                Text(
-                  'Why Volcano Explodes ?',
-                  style: TextStyle(
-                      color: Color(0xff4AB866),
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                Text(
-                  'As magma rises and pressure is released, gas bubbles (mainly of water vapor and carbon dioxide) form and expand rapidly, causing explosions....',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 4,
-                  style: TextStyle(
-                      overflow: TextOverflow.ellipsis,
-                      fontSize: 12.sp,
-                      color: Color(0xff585858)
+                GestureDetector(
+                  onTap: () {
+
+                    setState(() {
+                      isSelected = !isSelected;
+                    });
+                  },
+                  child: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Why Volcano Explodes ?',
+                          style: TextStyle(
+                            color: Color(0xff4AB866),
+                            fontSize: 15.sp,
+                            fontFamily: 'AlfaSlabOne',
+                          ),
+                        ),
+
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'As magma rises and pressure is released, gas bubbles (mainly of water vapor and carbon dioxide) form and expand rapidly, causing explosions.  ',
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                    color: Color(0xff585858)
+                                )
+                              ),
+                              if(isSelected == false)
+                                TextSpan(
+                                    text: 'Show more',
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                      color: Color(0xff4AB866),
+                                      fontWeight: FontWeight.bold
+                                    )
+                                ),
+                              if(isSelected == true)
+                                TextSpan(
+                                    text: 'As magma rises and pressure is released, gas bubbles (mainly of water vapor and carbon dioxide) form and expand rapidly, causing explosions',
+                                    style: TextStyle(
+                                        fontSize: 12.sp,
+                                        color: Color(0xff585858)
+                                    )
+                                )
+                            ]
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],

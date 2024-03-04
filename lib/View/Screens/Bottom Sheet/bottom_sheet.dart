@@ -9,6 +9,7 @@ import '../Post Detail/create_new_post_screen.dart';
 import '../Profile Screen/profile_detail_screen.dart';
 import '../Search/search_main_screen.dart';
 import 'bottom_selector_icon.dart';
+import 'package:get/get.dart';
 
 PersistentTabController? persistentcontroller;
 bool selectHome = true;
@@ -76,6 +77,9 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
               // }
               // current_index = v;
               // print('${_controller.index}');
+              if(v == 2){
+                Get.offAll(()=>CreateNewPostScreen(),);
+              }
               persistentcontroller!.index = v;
               setState(() {});
             },

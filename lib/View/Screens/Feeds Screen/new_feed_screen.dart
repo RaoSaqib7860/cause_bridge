@@ -9,6 +9,7 @@ import '../Post Detail/post_detail_screen.dart';
 import '../Profile Screen/other_profile_screen.dart';
 import '../Profile Screen/profile_screen.dart';
 import '../Settings/setting_screen.dart';
+import 'package:get/get.dart';
 
 class NewFeedScreen extends StatefulWidget {
   const NewFeedScreen({Key? key}) : super(key: key);
@@ -59,11 +60,11 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                     children: [
                       GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SettingScreen(),
-                                ));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => SettingScreen(),
+                            //     ));
                           },
                           child: SvgPicture.asset(
                             'assets/svgs/camm.svg',
@@ -314,8 +315,8 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                                         style: TextStyle(
                                             color: Color(0xff4AB866),
                                             fontFamily: 'AlfaSlabOne',
-                                            fontSize: 13.sp,
-                                            fontWeight: FontWeight.bold),
+                                            fontSize: 14.sp,
+                                            ),
                                       ),
                                       SizedBox(height: 0.7.h),
                                       Expanded(
@@ -353,12 +354,13 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                                                 children: [
                                                   GestureDetector(
                                                       onTap: () {
-                                                        Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  CommentScreen(),
-                                                            ));
+                                                        // Navigator.push(
+                                                        //     context,
+                                                        //     MaterialPageRoute(
+                                                        //       builder: (context) =>
+                                                        //           CommentScreen(),
+                                                        //     ));
+                                                        Get.off(()=>CommentScreen());
                                                       },
                                                       child: SvgPicture.asset(
                                                         'assets/svgs/Chat.svg',
@@ -428,69 +430,69 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                 ))
               ],
             ),
-            // Positioned(
-            //     bottom: 2.h,
-            //     left: 5.w,
-            //     child: GestureDetector(
-            //       onTap: () {
-            //         Navigator.push(
-            //             context,
-            //             MaterialPageRoute(
-            //               builder: (context) => ProfileScreen(),
-            //             ));
-            //       },
-            //       child: Container(
-            //         height: 7.h,
-            //         width: 90.w,
-            //         decoration: BoxDecoration(
-            //             color: Colors.white,
-            //             borderRadius: BorderRadius.circular(10),
-            //             boxShadow: [
-            //               BoxShadow(
-            //                   color: Colors.grey.withAlpha(50),
-            //                   offset: Offset(-1, -1),
-            //                   blurRadius: 1,
-            //                   spreadRadius: 0.5),
-            //               BoxShadow(
-            //                   color: Colors.grey.withAlpha(50),
-            //                   offset: Offset(1, 1),
-            //                   blurRadius: 1,
-            //                   spreadRadius: 0.5)
-            //             ]),
-            //         child: Padding(
-            //           padding: EdgeInsets.symmetric(horizontal: 3.w),
-            //           child: Column(
-            //             children: [
-            //               SizedBox(
-            //                 height: 1.h,
-            //               ),
-            //               Row(
-            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //                 children: [
-            //                   Text(
-            //                     'Profile Completion',
-            //                     style: TextStyle(
-            //                         color: Colors.green, fontSize: 15.sp),
-            //                   ),
-            //                   Text(
-            //                     '25%',
-            //                     style: TextStyle(
-            //                         color: Colors.green, fontSize: 15.sp),
-            //                   )
-            //                 ],
-            //               ),
-            //               SizedBox(
-            //                 height: 1.h,
-            //               ),
-            //               LinearProgressIndicator(
-            //                 value: controller.value,
-            //                 semanticsLabel: 'Linear progress indicator',
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       ),
-            //     ))
+            Positioned(
+                bottom: 2.h,
+                left: 5.w,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfileScreen(),
+                        ));
+                  },
+                  child: Container(
+                    height: 7.h,
+                    width: 90.w,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.withAlpha(50),
+                              offset: Offset(-1, -1),
+                              blurRadius: 1,
+                              spreadRadius: 0.5),
+                          BoxShadow(
+                              color: Colors.grey.withAlpha(50),
+                              offset: Offset(1, 1),
+                              blurRadius: 1,
+                              spreadRadius: 0.5)
+                        ]),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 3.w),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 1.h,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Profile Completion',
+                                style: TextStyle(
+                                    color: Colors.green, fontSize: 15.sp),
+                              ),
+                              Text(
+                                '25%',
+                                style: TextStyle(
+                                    color: Colors.green, fontSize: 15.sp),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 1.h,
+                          ),
+                          LinearProgressIndicator(
+                            value: controller.value,
+                            semanticsLabel: 'Linear progress indicator',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ))
           ],
         ),
       ),

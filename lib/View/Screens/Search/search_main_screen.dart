@@ -14,7 +14,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  int? index = 0;
+  int? index = 3;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -34,16 +34,15 @@ class _SearchScreenState extends State<SearchScreen> {
                     height: 5.h,
                     width: 90.w,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(5),
                       color: Colors.white
                       //border: Border.all(width: 0,color: Colors.white)
                     ),
                     child: TextFormField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                          prefixIcon: Icon(Icons.search,color: Colors.grey,size: 5.w,),
-                          contentPadding:
-                          EdgeInsets.only( bottom: 0,),
+                          prefixIcon: Icon(Icons.search,color: Colors.black87.withAlpha(150),size: 5.w,),
+                          contentPadding: EdgeInsets.only( top: 0.7.h,),
                           //enabled: true,
                           //isDense: true,
                           hintText: 'Name',
@@ -143,7 +142,7 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Resent',style: TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.bold),),
+                  Text('Recent',style: TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.bold),),
                   Text('Clear All',style: TextStyle(fontSize: 14,color: Colors.green,),),
                 ],
               ),

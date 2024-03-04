@@ -81,8 +81,8 @@ class _TageScreenState extends State<TageScreen> {
                                 //     shape: BoxShape.circle,
                                 //     border: Border.all(width: 1.5,color: Colors.green)
                                 // ),
-                                child: const Center(
-                                  child: Text('#',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontSize: 24)),
+                                child:  Center(
+                                  child: Text('#',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontSize: 25.sp)),
                                 ),
                               ),
                               SizedBox(width: 1.w,),
@@ -91,18 +91,19 @@ class _TageScreenState extends State<TageScreen> {
                                 children: [
                                   SizedBox(height:0.5.h,),
                                   Text(
-                                    'Chineze_afamefuna',
+                                    '#Chineze_afamefuna',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 13.sp,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.bold
                                     ),
                                   ),
+                                  SizedBox(height: 0.3.h,),
                                   Text(
-                                    'United State',
+                                    '10 Posts',
                                     style: TextStyle(
-                                      color: Colors.green,
-                                      fontSize: 12.sp,
+                                      color: Colors.green.withAlpha(150),
+                                      fontSize: 13.sp,
 
                                     ),
                                   ),
@@ -112,7 +113,7 @@ class _TageScreenState extends State<TageScreen> {
                             ],
                           ),
                         ),
-                        Icon(Icons.close,color: Colors.grey.shade500,size: 18),
+                        Icon(Icons.close,color: Colors.black87.withAlpha(150),size: 4.5.w),
                       ],
                     ),
                   ),

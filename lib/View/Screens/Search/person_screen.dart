@@ -45,7 +45,7 @@ class _PersonScreenState extends State<PersonScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height:0.5.h,),
+                          SizedBox(height:1.h,),
                           Text(
                             'Chineze_afamefuna',
                             style: TextStyle(
@@ -54,10 +54,11 @@ class _PersonScreenState extends State<PersonScreen> {
                                 fontWeight: FontWeight.bold
                             ),
                           ),
+                          SizedBox(height:0.5.h,),
                           Text(
                             'United State',
                             style: TextStyle(
-                              color: Colors.green,
+                              color: Colors.green.withAlpha(150),
                               fontSize: 12.sp,
 
                             ),
@@ -68,7 +69,7 @@ class _PersonScreenState extends State<PersonScreen> {
                     ],
                   ),
                 ),
-                Icon(Icons.close,color: Colors.grey.shade500,size: 18),
+                Icon(Icons.close,color: Colors.black87.withAlpha(150),size: 4.5.w),
               ],
             ),
           ),

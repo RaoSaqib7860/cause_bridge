@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:get/get.dart';
 
 import 'View/Screens/Authentication/Login/login_screen.dart';
 import 'View/Screens/Bottom Sheet/bottom_sheet.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterSizer(builder: (context, orientation, screenType) {
-      return MaterialApp(
+      return GetMaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme:

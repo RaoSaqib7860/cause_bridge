@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../Post Detail/create_new_post_screen.dart';
 import 'chet_screen.dart';
+import 'package:get/get.dart';
 
 class MessagesScreen extends StatefulWidget {
   const MessagesScreen({Key? key}) : super(key: key);
@@ -37,35 +38,34 @@ class _MessagesScreenState extends State<MessagesScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SvgPicture.asset('assets/svgs/Group17.svg'),
-                        Text('Messages',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white)),
-                        SvgPicture.asset('assets/svgs/message.svg'),
+                        SvgPicture.asset('assets/svgs/Group17.svg',height: 2.2.h,),
+                        Text('Messages',style: TextStyle(fontSize: 17.sp,fontWeight: FontWeight.bold,color: Colors.white)),
+                        SvgPicture.asset('assets/svgs/message.svg',height: 2.2.h,),
                       ],
                     ),
                   ),
                   SizedBox(height: 2.h,),
                   Container(
                     height: 5.h,
-                    width: 90.w,
+                    width: 92.w,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(5),
                         color: Colors.white
                       //border: Border.all(width: 0,color: Colors.white)
                     ),
                     child: TextFormField(
                       decoration: InputDecoration(
                           border: InputBorder.none,
-                          prefixIcon: Icon(Icons.search,color: Colors.grey,size: 5.w,),
-                          contentPadding:
-                          EdgeInsets.only( bottom: 0,),
+                          prefixIcon: Icon(Icons.search,color: Colors.black87.withAlpha(150),size: 5.w,),
+                          contentPadding: EdgeInsets.only( top: 0.7.h,),
                           //enabled: true,
                           //isDense: true,
-                          hintText: 'Name',
+                          hintText: 'Search \"your friend\"',
                           hintStyle: TextStyle(
                               color: Colors.grey,
                               fontSize: 13.sp
                           ),
-                          suffixIcon: Icon(Icons.close,color: Colors.grey,size: 5.w,)
+                          suffixIcon: Icon(Icons.close,color: Colors.grey,size: 4.w,)
                       ),
                     ),
                   ),
@@ -92,7 +92,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ChetScreen(),));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) => ChetScreen(),));
+                        Get.off(ChetScreen());
                       },
                       child: Container(
                         //height: 6.h,
@@ -103,7 +104,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: 6.h,
+                                //height: 6.h,
                                 width: 75.w,
                                 child: Row(
                                   children: [
@@ -127,15 +128,16 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                           'Chineze_afamefuna',
                                           style: TextStyle(
                                               color: Colors.black,
-                                              fontSize: 13.sp,
+                                              fontSize: 15.sp,
                                               fontWeight: FontWeight.bold
                                           ),
                                         ),
+                                        SizedBox(height: 0.5.h,),
                                         Text(
-                                          'United State',
+                                          'hi, John how are you doing with',
                                           style: TextStyle(
-                                            color: Colors.green,
-                                            fontSize: 12.sp,
+                                            color: Colors.green.withAlpha(200),
+                                            fontSize: 10.sp,
 
                                           ),
                                         ),
@@ -145,7 +147,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                   ],
                                 ),
                               ),
-                              Text('2 Day ago',style: TextStyle(color: Colors.grey,fontSize: 12)),
+                              Text('2 Days ago',style: TextStyle(color: Colors.grey,fontSize: 11.sp)),
                             ],
                           ),
                         ),

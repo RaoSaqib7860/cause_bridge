@@ -228,7 +228,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       fontFamily: 'AlfaSlabOne',
                                       color: _isButtonEnabled
                                           ? Colors.white
-                                          : Colors.green,
+                                          : Color(0xff4AB866),
                                       fontSize: 13)),
                             ),
                           ),
@@ -254,13 +254,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                   )),
                               TextSpan(
                                 recognizer: new TapGestureRecognizer()
-                                  ..onTap = () => {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SignUpScreen()),
-                                        )
+                                  ..onTap = () {
+                                        // Navigator.push(
+                                        //   context,
+                                        //   MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           SignUpScreen()),
+                                        // )
+                                    setState(() {
+                                      index = 2;
+                                    });
                                       },
                                 text: 'Sign up',
                                 style: TextStyle(

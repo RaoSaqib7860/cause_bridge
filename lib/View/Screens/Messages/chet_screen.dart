@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+
+import '../Bottom Sheet/bottom_sheet.dart';
 
 class ChetScreen extends StatefulWidget {
   const ChetScreen({Key? key}) : super(key: key);
@@ -27,7 +30,8 @@ class _ChetScreenState extends State<ChetScreen> {
                 children: [
                   InkWell(
                       onTap: () {
-                        Navigator.pop(context);
+                        //Navigator.pop(context);
+                        Get.offAll(BottomSheetScreen(index: 1,));
                       },
                       child: SvgPicture.asset('assets/svgs/arrowb.svg',width: 8.w,)),
                   //SizedBox(width: 30.w,),
@@ -72,16 +76,16 @@ class _ChetScreenState extends State<ChetScreen> {
                         'Chineze_afamefuna',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 15.sp,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.bold
                         ),
                       ),
-                      SizedBox(height: 0.3.h,),
+                      SizedBox(height: 0.6.h,),
                       Text(
                         'Last seen: 2 hours ago',
                         style: TextStyle(
                             color: Colors.white.withAlpha(200),
-                            fontSize: 11.sp,
+                            fontSize: 13.sp,
                         ),
                       ),
                     ],
@@ -191,13 +195,18 @@ class _ChetScreenState extends State<ChetScreen> {
                     child: Padding(
                       padding:  EdgeInsets.symmetric(horizontal: 2.w),
                       child: TextFormField(
+                        style: TextStyle(
+                            color: Color(0xffCDCDCD),
+                            fontSize: 12.sp
+                        ),
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Enter your message',
                           hintStyle: TextStyle(
                               color: Color(0xffCDCDCD),
-                              fontSize: 11.sp
+                              fontSize: 12.sp
                           ),
+                          contentPadding: EdgeInsets.only(bottom: 2.h),
                         ),
                       ),
                     ),

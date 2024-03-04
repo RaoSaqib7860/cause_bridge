@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
+import '../Bottom Sheet/bottom_sheet.dart';
 import '../Messages/chet_screen.dart';
 
 class CommentScreen extends StatefulWidget {
@@ -30,7 +32,7 @@ class _CommentScreenState extends State<CommentScreen> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pop(context);
+                      Get.offAll(()=>BottomSheetScreen(index: 0,));
                     },
                     child: Icon(
                       Icons.close,
@@ -46,6 +48,7 @@ class _CommentScreenState extends State<CommentScreen> {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 17.sp,
+                      fontWeight: FontWeight.bold
                     ),
                   )
                 ],
@@ -254,17 +257,23 @@ class _CommentScreenState extends State<CommentScreen> {
                         color: Colors.white
                       //border: Border.all(width: 0,color: Colors.white)
                     ),
-                    child: Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.w),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            //contentPadding: EdgeInsets.only(left: 2.w,top: 0,bottom: 0),
-                            hintText: 'Enter your comment',
-                            hintStyle: TextStyle(
-                                color: Color(0xffCDCDCD),
-                                fontSize: 11.sp
-                            ),
+                    child: Center(
+                      child: Padding(
+                        padding:  EdgeInsets.symmetric(horizontal: 2.w),
+                        child: TextFormField(
+                          style: TextStyle(
+                              color: Color(0xffCDCDCD),
+                              fontSize: 12.sp
+                          ),
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.only(bottom: 2.h),
+                              hintText: 'Enter your comment',
+                              hintStyle: TextStyle(
+                                  color: Color(0xffCDCDCD),
+                                  fontSize: 12.sp
+                              ),
+                          ),
                         ),
                       ),
                     ),

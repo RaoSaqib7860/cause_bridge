@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../../Custom Widget/click_button.dart';
+import '../Bottom Sheet/bottom_sheet.dart';
+import '../Feeds Screen/new_feed_screen.dart';
 import '../Notifications/notifications_screen.dart';
 
 class CreateNewPostScreen extends StatefulWidget {
@@ -19,7 +22,7 @@ class _CreateNewPostScreenState extends State<CreateNewPostScreen> {
       body: Container(
         height: 100.h,
         width: 100.w,
-        color: Colors.green,
+        color: Color(0xff4AB866),
         child: Column(
           children: [
             SizedBox(height: 10.h,),
@@ -27,13 +30,19 @@ class _CreateNewPostScreenState extends State<CreateNewPostScreen> {
               padding:  EdgeInsets.symmetric(horizontal: 5.w),
               child: Row(
                 children: [
-                  Icon(Icons.close,color: Colors.white,size: 3.h,),
+                  GestureDetector(
+                      onTap: () {
+                       // Navigator.push(context, MaterialPageRoute(builder: (context) => BottomSheetScreen(),));
+                        Get.offAll(()=>BottomSheetScreen(index: 0,));
+                      },
+                      child: Icon(Icons.close,color: Colors.white,size: 3.h,)),
                   SizedBox(width: 20.w,),
                   Text(
                     'Create New Post',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 17.sp,
+                      fontWeight: FontWeight.bold
                     ),
                   )
                 ],
@@ -205,27 +214,32 @@ class _CreateNewPostScreenState extends State<CreateNewPostScreen> {
                               itemBuilder: (context, index) {
                               return Row(
                                 children: [
-                                  Container(
-                                    height: 4.2.h,
-                                    //width: 25.w,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Color(0xffF9F9F9)
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(width: 1.h,),
-                                        Icon(Icons.close,color: Color(0xff595959),size: 2.3.h,),
-                                        SizedBox(width: 1.h,),
-                                        Text(
-                                          'China',
-                                          style: TextStyle(
-                                            color: Color(0xff595959),
-                                            fontSize: 10.sp
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.offAll(()=> BottomSheetScreen(index: 4,));
+                                    },
+                                    child: Container(
+                                      height: 4.2.h,
+                                      //width: 25.w,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: Color(0xffF9F9F9)
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          SizedBox(width: 1.h,),
+                                          Icon(Icons.close,color: Color(0xff595959),size: 2.3.h,),
+                                          SizedBox(width: 1.h,),
+                                          Text(
+                                            'China',
+                                            style: TextStyle(
+                                              color: Color(0xff595959),
+                                              fontSize: 10.sp
+                                            ),
                                           ),
-                                        ),
-                                        SizedBox(width: 2.h,),
-                                      ],
+                                          SizedBox(width: 2.h,),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   SizedBox(width: 2.w,),
@@ -256,27 +270,32 @@ class _CreateNewPostScreenState extends State<CreateNewPostScreen> {
                               itemBuilder: (context, index) {
                                 return Row(
                                   children: [
-                                    Container(
-                                      height: 4.2.h,
-                                      //width: 25.w,
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Color(0xffF9F9F9)
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          SizedBox(width: 1.h,),
-                                          Icon(Icons.close,color: Color(0xff595959),size: 2.3.h,),
-                                          SizedBox(width: 1.h,),
-                                          Text(
-                                            'Data Science',
-                                            style: TextStyle(
-                                                color: Color(0xff595959),
-                                                fontSize: 10.sp
+                                    GestureDetector(
+                                      onTap: () {
+                                        Get.offAll(()=> BottomSheetScreen(index: 4,));
+                                      },
+                                      child: Container(
+                                        height: 4.2.h,
+                                        //width: 25.w,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            color: Color(0xffF9F9F9)
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            SizedBox(width: 1.h,),
+                                            Icon(Icons.close,color: Color(0xff595959),size: 2.3.h,),
+                                            SizedBox(width: 1.h,),
+                                            Text(
+                                              'Data Science',
+                                              style: TextStyle(
+                                                  color: Color(0xff595959),
+                                                  fontSize: 10.sp
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(width: 2.h,),
-                                        ],
+                                            SizedBox(width: 2.h,),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     SizedBox(width: 2.w,),
@@ -330,19 +349,24 @@ class _CreateNewPostScreenState extends State<CreateNewPostScreen> {
         height: 8.h,
         color: Colors.white,
         child: Center(
-          child: Container(
-            height: 5.h,
-            width: 90.w,
-            decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Center(
-              child: Text('Post',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                      fontSize: 16)),
+          child: GestureDetector(
+            onTap: () {
+              Get.offAll(()=>BottomSheetScreen(index: 0,));
+            },
+            child: Container(
+              height: 5.h,
+              width: 90.w,
+              decoration: BoxDecoration(
+                color: Color(0xff4AB866),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Text('Post',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 16)),
+              ),
             ),
           ),
         ),

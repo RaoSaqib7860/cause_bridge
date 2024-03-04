@@ -61,17 +61,16 @@ class _SettingScreenState extends State<SettingScreen> {
                 child: TextFormField(
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                      prefixIcon: Icon(Icons.search,color: Colors.grey,size: 5.w,),
-                      contentPadding:
-                      EdgeInsets.only( bottom: 0,),
+                      prefixIcon: Icon(Icons.search,color: Colors.black87.withAlpha(150),size: 5.w,),
+                      contentPadding: EdgeInsets.only( top: 0.7.h,),
                       //enabled: true,
                       //isDense: true,
-                      hintText: 'Name',
+                      hintText: 'John doe',
                       hintStyle: TextStyle(
                           color: Colors.grey,
                           fontSize: 13.sp
                       ),
-                      suffixIcon: Icon(Icons.close,color: Colors.grey,size: 5.w,)
+                      //suffixIcon: Icon(Icons.close,color: Colors.grey,size: 5.w,)
                   ),
                 ),
               ),

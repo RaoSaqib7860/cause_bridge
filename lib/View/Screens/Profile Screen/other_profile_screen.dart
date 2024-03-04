@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../Feeds Screen/new_feed_screen.dart';
 import '../Post Detail/post_detail_screen.dart';
+import 'package:get/get.dart';
 
 class OtherProfileScreen extends StatefulWidget {
   const OtherProfileScreen({Key? key}) : super(key: key);
@@ -53,6 +54,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                                 fontWeight: FontWeight.bold
                             ),
                           ),
+                          SizedBox(height: 0.3.h,),
                           Text(
                             'China',
                             style: TextStyle(
@@ -61,6 +63,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
 
                             ),
                           ),
+                          SizedBox(height: 0.3.h,),
                           Row(
                             children: [
                               Container(
@@ -117,6 +120,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                               fontSize: 14.sp
                           ),
                         ),
+                        SizedBox(height: 0.4.h,),
                         Text(
                           'Country',
                           style: TextStyle(
@@ -141,6 +145,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                               fontSize: 14.sp
                           ),
                         ),
+                        SizedBox(height: 0.4.h,),
                         Text(
                           'Education',
                           style: TextStyle(
@@ -165,6 +170,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                               fontSize: 14.sp
                           ),
                         ),
+                        SizedBox(height: 0.4.h,),
                         Text(
                           'Post',
                           style: TextStyle(
@@ -177,7 +183,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 1.h,),
+              SizedBox(height: 2.h,),
               Expanded(
                   child: ListView.builder(
                     itemCount: 2,
@@ -185,31 +191,31 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
-                          Container(
-                            height: 36.h,
-                            width: 90.h,
-                            decoration: BoxDecoration(
-                              color: Color(0xffedf8f0),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Stack(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(height: 1.5.h,),
-                                      GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(context, MaterialPageRoute(builder: (context) => PostDetailScreen(),));
-                                        },
-                                        child: Padding(
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => PostDetailScreen(),));
+                            },
+                            child: Container(
+                              height: 36.h,
+                              width: 90.h,
+                              decoration: BoxDecoration(
+                                color: Color(0xffedf8f0),
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 3.w),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(height: 1.5.h,),
+                                        Padding(
                                           padding: EdgeInsets.symmetric(horizontal: 1.w),
                                           child: Row(
                                             children: [
                                               Container(
-                                                height: 4.5.h,
+                                                height: 4.h,
                                                 width: 9.w,
                                                 decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
@@ -231,11 +237,12 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                                                         fontWeight: FontWeight.bold
                                                     ),
                                                   ),
+                                                  SizedBox(height: 0.2.h,),
                                                   Text(
                                                     'United State',
                                                     style: TextStyle(
                                                       color: Colors.green,
-                                                      fontSize: 12.sp,
+                                                      fontSize: 11.sp,
 
                                                     ),
                                                   ),
@@ -245,114 +252,117 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> {
                                             ],
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(height: 0.2.h,),
-                                      Container(
-                                        height: 13.h,
-                                        child: ListView.builder(
-                                          itemCount: 3,
-                                          scrollDirection: Axis.horizontal,
-                                          //padding: EdgeInsets.symmetric(horizontal: 1.w),
-                                          itemBuilder: (context, index) {
-                                            return Row(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                  child: Container(
-                                                    height: 13.h,
-                                                    width: 32.w,
-                                                    decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.circular(10),
-                                                        color: Colors.white
-                                                    ),
-                                                    child: Image(image: AssetImage('assets/asset/text.png'),fit: BoxFit.cover,),
-                                                  ),
-                                                ),
-                                                SizedBox(width: 4.w,)
-                                              ],
-                                            );
-                                          },),
-                                      ),
-                                      Text(
-                                        'Why Volcano Explodes ?',
-                                        style: TextStyle(
-                                            color: Color(0xff4AB866),
-                                            fontSize: 18.sp,
-                                            fontWeight: FontWeight.bold
-                                        ),
-                                      ),
-                                      Expanded(
-                                          child: Text(
-                                            'As magma rises and pressure is released, gas bubbles (mainly of water vapor and carbon dioxide) form and expand rapidly, causing explosions....',
-                                            overflow: TextOverflow.ellipsis,
-                                            maxLines: 4,
-                                            style: TextStyle(
-                                                overflow: TextOverflow.ellipsis,
-                                                fontSize: 12.sp,
-                                                color: Color(0xff585858)
-                                            ),
-                                          ))
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                    bottom: 0,
-                                    child: Container(
-                                      height: 5.5.h,
-                                      width: 90.w,
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
-                                          color: Color(0xffa6aea8)
-                                      ),
-                                      child: Center(
-                                        child: Padding(
-                                          padding:  EdgeInsets.symmetric(horizontal: 5.w),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Row(
+                                        SizedBox(height: 1.h,),
+                                        Container(
+                                          height: 13.h,
+                                          child: ListView.builder(
+                                            itemCount: 3,
+                                            scrollDirection: Axis.horizontal,
+                                            //padding: EdgeInsets.symmetric(horizontal: 1.w),
+                                            itemBuilder: (context, index) {
+                                              return Row(
                                                 children: [
-                                                  GestureDetector(
-                                                      onTap: () {
-                                                        Navigator.push(context, MaterialPageRoute(builder: (context) => CommentScreen(),));
-                                                      },
-                                                      child: SvgPicture.asset('assets/svgs/Chat.svg',height: 3.h,)),
-                                                  SizedBox(width: 1.w,),
-                                                  Text(
-                                                    '10',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 16.sp,
-                                                        fontWeight: FontWeight.bold
+                                                  ClipRRect(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    child: Container(
+                                                      height: 13.h,
+                                                      width: 32.w,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(10),
+                                                          color: Colors.white
+                                                      ),
+                                                      child: Image(image: AssetImage('assets/asset/text.png'),fit: BoxFit.cover,),
                                                     ),
                                                   ),
-                                                  SizedBox(width: 2.w,),
-                                                  SvgPicture.asset('assets/svgs/like.svg',height: 3.h,),
-                                                  SizedBox(width: 1.w,),
-                                                  Text(
-                                                    '122',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 16.sp,
-                                                        fontWeight: FontWeight.bold
-                                                    ),
-                                                  )
+                                                  SizedBox(width: 4.w,)
                                                 ],
+                                              );
+                                            },),
+                                        ),
+                                        SizedBox(height: 1.h,),
+                                        Text(
+                                          'Why Volcano Explodes ?',
+                                          style: TextStyle(
+                                              color: Color(0xff4AB866),
+                                              fontSize: 14.sp,
+                                            fontFamily: 'AlfaSlabOne',
+                                          ),
+                                        ),
+                                        SizedBox(height: 0.3.h,),
+                                        Expanded(
+                                            child: Text(
+                                              'As magma rises and pressure is released, gas bubbles (mainly of water vapor and carbon dioxide) form and expand rapidly, causing explosions....',
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 4,
+                                              style: TextStyle(
+                                                  overflow: TextOverflow.ellipsis,
+                                                  fontSize: 12.sp,
+                                                  color: Color(0xff585858)
                                               ),
-                                              Row(
-                                                children: [
-                                                  SvgPicture.asset('assets/svgs/Send.svg',height: 2.3.h,),
-                                                  SizedBox(width: 3.w,),
-                                                  SvgPicture.asset('assets/svgs/Sub.svg',height: 2.3.h,),
-                                                ],
-                                              )
-                                            ],
+                                            ))
+                                      ],
+                                    ),
+                                  ),
+                                  Positioned(
+                                      bottom: 0,
+                                      child: Container(
+                                        height: 5.5.h,
+                                        width: 90.w,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
+                                            color: Color(0xffa6aea8)
+                                        ),
+                                        child: Center(
+                                          child: Padding(
+                                            padding:  EdgeInsets.symmetric(horizontal: 5.w),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    GestureDetector(
+                                                        onTap: () {
+                                                          //Navigator.push(context, MaterialPageRoute(builder: (context) => CommentScreen(),));
+                                                          Get.off(()=>CommentScreen());
+                                                        },
+                                                        child: SvgPicture.asset('assets/svgs/Chat.svg',height: 3.h,)),
+                                                    SizedBox(width: 1.w,),
+                                                    Text(
+                                                      '10',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 16.sp,
+                                                          fontWeight: FontWeight.bold
+                                                      ),
+                                                    ),
+                                                    SizedBox(width: 2.w,),
+                                                    SvgPicture.asset('assets/svgs/like.svg',height: 3.h,),
+                                                    SizedBox(width: 1.w,),
+                                                    Text(
+                                                      '122',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 16.sp,
+                                                          fontWeight: FontWeight.bold
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    SvgPicture.asset('assets/svgs/Send.svg',height: 2.3.h,),
+                                                    SizedBox(width: 3.w,),
+                                                    SvgPicture.asset('assets/svgs/Sub.svg',height: 2.3.h,),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    )
-                                )
-                              ],
+                                      )
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(height: 2.h,)

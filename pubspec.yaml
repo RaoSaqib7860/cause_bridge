@@ -41,6 +41,7 @@ dependencies:
   dateofbirth: ^0.0.5
   persistent_bottom_nav_bar:
     path: plugin/PersistentBottomNavBar
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:
