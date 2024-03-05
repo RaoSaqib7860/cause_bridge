@@ -31,7 +31,7 @@ class _NewFeedScreenState extends State<NewFeedScreen>
       vsync: this,
       duration: const Duration(seconds: 5),
     );
-    controller.repeat(reverse: false);
+    controller.repeat(reverse: false,min: 0,max: 100,);
     super.initState();
   }
 
@@ -223,7 +223,7 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                         ));
                   },
                   child: Container(
-                    height: 7.h,
+                    //height: 7.h,
                     width: 90.w,
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -241,12 +241,12 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                               spreadRadius: 0.5)
                         ]),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 3.w),
+                      padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 1.5.h),
                       child: Column(
                         children: [
-                          SizedBox(
-                            height: 1.h,
-                          ),
+                          // SizedBox(
+                          //   height: 1.h,
+                          // ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -269,8 +269,9 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                             value: controller.value,
                             semanticsLabel: 'Linear progress indicator',
                             color: Color(0xff4AB866),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(20),
                             backgroundColor: Colors.grey.withAlpha(100),
+                            minHeight: 0.7.h,
                             //semanticsValue: '50',
                           ),
                         ],
