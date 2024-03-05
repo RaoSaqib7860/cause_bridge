@@ -1,7 +1,9 @@
+import 'package:cause_bridge/View/Screens/Authentication/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../Profile Screen/profile_screen.dart';
 
@@ -167,28 +169,33 @@ class _SettingScreenState extends State<SettingScreen> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Container(
-                              height: 5.h,
-                              width: 33.w,
-                              decoration: BoxDecoration(
-                                color: Colors.green,
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Center(
-                                child: Padding(
-                                  padding:  EdgeInsets.symmetric(horizontal: 2.w),
-                                  child: Row(
-                                    children: [
-                                      SvgPicture.asset('assets/svgs/logouts.svg',height: 3.h,),
-                                      SizedBox(width: 2.w,),
-                                      Text(
-                                        'Log out',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                          fontSize: 18.sp
-                                        ),
-                                      )
-                                    ],
+                            GestureDetector(
+                              onTap: () {
+                                Get.offAll(()=>LoginScreen());
+                              },
+                              child: Container(
+                                height: 5.h,
+                                width: 33.w,
+                                decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Center(
+                                  child: Padding(
+                                    padding:  EdgeInsets.symmetric(horizontal: 2.w),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset('assets/svgs/logouts.svg',height: 3.h,),
+                                        SizedBox(width: 2.w,),
+                                        Text(
+                                          'Log out',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                            fontSize: 18.sp
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

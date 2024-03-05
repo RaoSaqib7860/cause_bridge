@@ -14,6 +14,8 @@ class CommentScreen extends StatefulWidget {
 }
 
 class _CommentScreenState extends State<CommentScreen> {
+  bool isSelected = false;
+  int ind = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +36,7 @@ class _CommentScreenState extends State<CommentScreen> {
                     onTap: () {
                       Get.offAll(()=>BottomSheetScreen(index: 0,));
                     },
-                    child: Icon(
-                      Icons.close,
-                      color: Colors.white,
-                      size: 3.h,
-                    ),
+                    child: SvgPicture.asset('assets/svgs/closee.svg',height: 2.h,),
                   ),
                   SizedBox(
                     width: 20.w,
@@ -121,84 +119,107 @@ class _CommentScreenState extends State<CommentScreen> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Container(
-                                                //height: 10.h,
-                                                width: 60.w,
-                                                child: RichText(
-                                                    text: TextSpan(
-                                                      children: <TextSpan>[
-                                                        TextSpan(
-                                                          text: 'Chineze_afamefuna',
-                                                          style: TextStyle(
-                                                              color: Colors.black,
-                                                              fontSize: 13.sp,
-                                                              fontWeight: FontWeight.bold
+                                              Padding(
+                                                padding:  EdgeInsets.only(top: 0.8.h),
+                                                child: Container(
+                                                  //height: 10.h,
+                                                  width: 70.w,
+                                                  child: RichText(
+                                                      text: TextSpan(
+                                                        children: <TextSpan>[
+                                                          TextSpan(
+                                                            text: 'Chineze_afamefuna',
+                                                            style: TextStyle(
+                                                                color: Colors.black,
+                                                                fontSize: 13.sp,
+                                                                fontWeight: FontWeight.bold
+                                                            ),
                                                           ),
-                                                        ),
-                                                        TextSpan(
-                                                          text: ' Hi, How’s going on?Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                                                          style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 12.sp,
+                                                          TextSpan(
+                                                            text: ' Hi, How’s going on?Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                                                            style: TextStyle(
+                                                              color: Colors.black.withAlpha(170),
+                                                              fontSize: 12.sp,
+                                                            )
+
                                                           )
+                                                        ]
+                                                      ),
 
-                                                        )
-                                                      ]
-                                                    ),
-
-                                                )
+                                                  )
+                                                ),
                                               ),
                                               SizedBox(
                                                 height: 1.h,
                                               ),
-                                              RichText(
-                                                  text: TextSpan(
-                                                    children: [
-                                                      TextSpan(
-                                                        text: '3h',
-                                                        style: TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 9.sp
-                                                        )
-                                                      ),
-                                                      TextSpan(
-                                                          text: ' 1 Like ',
-                                                          style: TextStyle(
-                                                              color: Colors.black,
-                                                              fontSize: 9.sp
-                                                          )
-                                                      ),
-                                                      TextSpan(
-                                                          text: '  Reply',
-                                                          style: TextStyle(
-                                                              color: Colors.green,
-                                                              fontSize: 9.sp
-                                                          )
-                                                      )
-                                                    ]
-                                                  )
-                                              )
-                                              // Row(
-                                              //   children: [
-                                              //     Text(
-                                              //       '3h 1 Like ',
-                                              //       style: TextStyle(
-                                              //         color: Colors.black,
-                                              //         fontSize: 9.sp,
-                                              //       ),
-                                              //     ),
-                                              //     SizedBox(
-                                              //       width: 2.w,
-                                              //     ),
-                                              //     Text(
-                                              //       'Reply',
-                                              //       style: TextStyle(
-                                              //         color: Colors.green,
-                                              //         fontSize: 9.sp,
-                                              //       ),
+                                              // RichText(
+                                              //     text: TextSpan(
+                                              //       children: [
+                                              //         TextSpan(
+                                              //           text: '3h',
+                                              //           style: TextStyle(
+                                              //             color: Colors.grey,
+                                              //             fontSize: 11.sp
+                                              //           )
+                                              //         ),
+                                              //         TextSpan(
+                                              //             text: ' 1 Like ',
+                                              //             style: TextStyle(
+                                              //                 color: Colors.grey,
+                                              //                 fontSize: 11.sp
+                                              //             )
+                                              //         ),
+                                              //         TextSpan(
+                                              //             text: '  Reply',
+                                              //             style: TextStyle(
+                                              //                 color: Colors.green.withAlpha(150),
+                                              //                 fontSize: 11.sp
+                                              //             )
+                                              //         )
+                                              //       ]
                                               //     )
-                                              //   ],
                                               // )
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    '3h',
+                                                    style: TextStyle(
+                                                      color: Colors.grey,
+                                                      fontSize: 11.sp,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 2.w,
+                                                  ),
+                                                  Text(
+                                                    '1 Like',
+                                                    style: TextStyle(
+                                                      color: Colors.grey,
+                                                      fontSize: 11.sp,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 2.w,
+                                                  ),
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      ind = index;
+                                                      setState(() {
+                                                        isSelected = !isSelected;
+
+                                                      });
+                                                    },
+                                                    child: Text(
+                                                      'Reply',
+                                                      style: TextStyle(
+                                                        color: Colors.green.withAlpha(200),
+                                                        fontSize: 11.sp,
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+
                                             ],
                                           ),
                                         ],
@@ -215,9 +236,185 @@ class _CommentScreenState extends State<CommentScreen> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 0.5.h,
-                            )
+
+                            // SizedBox(
+                            //   height: 0.1.h,
+                            // ),
+                            if(isSelected == true && ind == index)
+                              Container(
+                                child: ListView.builder(
+                                  itemCount: 2,
+                                  shrinkWrap: true,
+                                  padding: EdgeInsets.zero,
+                                  itemBuilder: (context, index) => Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 0.2.h, left: 13.w),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          // height: 6.h,
+                                          // width: 95.w,
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 14.0),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Container(
+                                                  //height: 6.h,
+                                                  //width: 75.w,
+                                                  child: Row(
+                                                    crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                    children: [
+                                                      Container(
+                                                        height: 6.h,
+                                                        width: 10.w,
+                                                        decoration: BoxDecoration(
+                                                            shape: BoxShape.circle,
+                                                            border: Border.all(
+                                                                width: 1.5,
+                                                                color: Colors.green)),
+                                                        child: Center(
+                                                          child: Icon(
+                                                            Icons.person,
+                                                            size: 2.h,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 3.w,
+                                                      ),
+                                                      Column(
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                        children: [
+                                                          Padding(
+                                                            padding: EdgeInsets.only(top: 0.8.h),
+                                                            child: Container(
+                                                              //height: 10.h,
+                                                                width: 50.w,
+                                                                child: RichText(
+
+                                                                  text: TextSpan(
+                                                                      children: <TextSpan>[
+                                                                        TextSpan(
+                                                                          text: 'Chineze_afamefuna',
+                                                                          style: TextStyle(
+                                                                              color: Colors.black,
+                                                                              fontSize: 13.sp,
+                                                                              fontWeight: FontWeight.bold
+                                                                          ),
+                                                                        ),
+                                                                        TextSpan(
+                                                                            text: ' Hi, How’s going on? Lorem',
+                                                                            style: TextStyle(
+                                                                              color: Colors.black.withAlpha(170),
+                                                                              fontSize: 12.sp,
+                                                                            )
+
+                                                                        )
+                                                                      ]
+                                                                  ),
+
+                                                                )
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 1.h,
+                                                          ),
+                                                          // RichText(
+                                                          //     text: TextSpan(
+                                                          //       children: [
+                                                          //         TextSpan(
+                                                          //           text: '3h',
+                                                          //           style: TextStyle(
+                                                          //             color: Colors.grey,
+                                                          //             fontSize: 11.sp
+                                                          //           )
+                                                          //         ),
+                                                          //         TextSpan(
+                                                          //             text: ' 1 Like ',
+                                                          //             style: TextStyle(
+                                                          //                 color: Colors.grey,
+                                                          //                 fontSize: 11.sp
+                                                          //             )
+                                                          //         ),
+                                                          //         TextSpan(
+                                                          //             text: '  Reply',
+                                                          //             style: TextStyle(
+                                                          //                 color: Colors.green.withAlpha(150),
+                                                          //                 fontSize: 11.sp
+                                                          //             )
+                                                          //         )
+                                                          //       ]
+                                                          //     )
+                                                          // )
+                                                          Row(
+                                                            children: [
+                                                              Text(
+                                                                '3h',
+                                                                style: TextStyle(
+                                                                  color: Colors.grey,
+                                                                  fontSize: 11.sp,
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                width: 2.w,
+                                                              ),
+                                                              Text(
+                                                                '1 Like',
+                                                                style: TextStyle(
+                                                                  color: Colors.grey,
+                                                                  fontSize: 11.sp,
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                width: 2.w,
+                                                              ),
+                                                              Text(
+                                                                'Reply',
+                                                                style: TextStyle(
+                                                                  color: Colors.green.withAlpha(200),
+                                                                  fontSize: 11.sp,
+                                                                ),
+                                                              )
+                                                            ],
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.only(right: 2.w),
+                                                  child: SvgPicture.asset(
+                                                    'assets/svgs/likes.svg',
+                                                    height: 2.h,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        )
+                                        // Padding(
+                                        //   padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                                        //   child: Divider(
+                                        //     thickness: 1,
+                                        //     //color: Colors.black,
+                                        //   ),
+                                        // )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                             // Padding(
                             //   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                             //   child: Divider(

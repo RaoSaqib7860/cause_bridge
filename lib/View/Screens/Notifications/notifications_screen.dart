@@ -30,7 +30,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Icon(Icons.close,color: Colors.white,size: 3.h,)),
+                      child: SvgPicture.asset('assets/svgs/closee.svg',height: 2.h,)),
                   SizedBox(width: 20.w,),
                   Text(
                     'Notifications',
@@ -96,10 +96,10 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                                                   style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 13.sp,
-
+                                                    fontWeight: FontWeight.bold
                                                   ),
                                                 ),
-                                                SizedBox(height: 0.4.h,),
+                                                SizedBox(height: 0.6.h,),
                                                 Text(
                                                   'Why Volcano Explodes ?',
                                                   style: TextStyle(
@@ -112,7 +112,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                                                 Text(
                                                   'Like your research',
                                                   style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.black.withAlpha(170),
                                                     fontSize: 12.sp,
 
                                                   ),

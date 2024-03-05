@@ -20,7 +20,8 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
     'Personal Development',
     'Computer Science',
     'Data Science',
-    'Life Science'
+    'Life Science',
+    'Social Science',
   ];
   String? selected_interest;
   @override
@@ -30,86 +31,94 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
       body: Container(
         height: 100.h,
         width: 100.w,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 10.h,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 10.h,
+            ),
+            Image(
+              image: AssetImage('assets/asset/group2.png'),
+              width: 70.w,
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Text(
+              'Choose your Intrest',
+              style: TextStyle(
+                  color: Color(0xff4AB866),
+                  fontSize: 17.sp,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 0.5.h,
+            ),
+            Text(
+              'Choose At least 3 or more',
+              style: TextStyle(
+                color: Color(0xff6A6A6A),
+                fontSize: 14.sp,
+                //fontWeight: FontWeight.bold
               ),
-              Image(
-                image: AssetImage('assets/asset/group2.png'),
-                width: 70.w,
+            ),
+            SizedBox(
+              height: 6.h,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                    children: list_of_interest.map((e) {
+                  return InkWell(
+                    child: selected_interest == e
+                        ? selected_checkboxContainer(text: '$e')
+                        : checkboxContainer(text: '$e'),
+                    onTap: () {
+                      selected_interest = e;
+                      setState(() {});
+                    },
+                  );
+                }).toList()),
               ),
-              SizedBox(
-                height: 2.h,
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        child: Padding(
+          padding:  EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 9.w),
+          child: GestureDetector(
+            onTap: () {
+              if (selected_interest != null) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BottomSheetScreen(),
+                    ));
+              }
+            },
+            child: Container(
+              height: 6.7.h,
+              width: 82.w,
+              decoration: BoxDecoration(
+                color: Color(0xff4AB866),
+                borderRadius: BorderRadius.circular(7),
               ),
-              Text(
-                'Choose your Intrest',
-                style: TextStyle(
-                    color: Color(0xff4AB866),
-                    fontSize: 17.sp,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 0.5.h,
-              ),
-              Text(
-                'Choose At least 3 or more',
-                style: TextStyle(
-                  color: Color(0xff6A6A6A),
-                  fontSize: 14.sp,
-                  //fontWeight: FontWeight.bold
+              child: Center(
+                child: Text(
+                  'Continue',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500
+                    //fontWeight: FontWeight.bold
+                  ),
                 ),
               ),
-              SizedBox(
-                height: 6.h,
-              ),
-              Column(
-                  children: list_of_interest.map((e) {
-                return InkWell(
-                  child: selected_interest == e
-                      ? selected_checkboxContainer(text: '$e')
-                      : checkboxContainer(text: '$e'),
-                  onTap: () {
-                    selected_interest = e;
-                    setState(() {});
-                  },
-                );
-              }).toList()),
-              SizedBox(
-                height: 2.h,
-              ),
-              GestureDetector(
-                onTap: () {
-                  if (selected_interest != null) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BottomSheetScreen(),
-                        ));
-                  }
-                },
-                child: Container(
-                  height: 6.7.h,
-                  width: 82.w,
-                  decoration: BoxDecoration(
-                    color: Color(0xff4AB866),
-                    borderRadius: BorderRadius.circular(7),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Continue',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500
-                          //fontWeight: FontWeight.bold
-                          ),
-                    ),
-                  ),
-                ),
-              )
-            ],
+            ),
           ),
         ),
       ),

@@ -35,7 +35,7 @@ class _CreateNewPostScreenState extends State<CreateNewPostScreen> {
                        // Navigator.push(context, MaterialPageRoute(builder: (context) => BottomSheetScreen(),));
                         Get.offAll(()=>BottomSheetScreen(index: 0,));
                       },
-                      child: Icon(Icons.close,color: Colors.white,size: 3.h,)),
+                      child: SvgPicture.asset('assets/svgs/closee.svg',height: 2.h,)),
                   SizedBox(width: 20.w,),
                   Text(
                     'Create New Post',
