@@ -3,6 +3,7 @@ import 'package:dateofbirth/dateofbirth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -285,9 +286,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 BoxShadow(color: Colors.grey.withAlpha(50),offset: Offset(1, 1),blurRadius: 1,spreadRadius: 0.5)
               ]
           ),
-          child: TextField(
+          child: TextFormField(
             style: TextStyle(
               color: Color(0xffB4B4B4),
+                fontSize: 15.sp
             ),
             decoration: InputDecoration(
                 border: InputBorder.none,
@@ -296,7 +298,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Color(0xffB4B4B4),
                     fontSize: 14.sp
                 ),
-                contentPadding: EdgeInsets.symmetric(horizontal: 5.w)
+                contentPadding: EdgeInsets.symmetric(horizontal: 5.w),
             ),
           ),
         ),

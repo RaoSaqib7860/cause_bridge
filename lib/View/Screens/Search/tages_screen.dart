@@ -44,8 +44,8 @@ class _TageScreenState extends State<TageScreen> {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 12.0, vertical: 6),
                                     child: Text('${e}',
-                                        style: const TextStyle(
-                                            color: Colors.grey, fontSize: 12)),
+                                        style:  TextStyle(
+                                            color: Colors.grey, fontSize: 11.sp)),
                                   ),
                                 ),
                               ),
@@ -62,7 +62,7 @@ class _TageScreenState extends State<TageScreen> {
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4.0),
                 child: Container(
-                  height: 6.h,
+                  //height: 6.h,
                   //width: 95.w,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 14.0),
@@ -70,8 +70,8 @@ class _TageScreenState extends State<TageScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          height: 6.h,
-                          width: 80.w,
+                          // height: 6.h,
+                          // width: 80.w,
                           child: Row(
                             children: [
                               Container(

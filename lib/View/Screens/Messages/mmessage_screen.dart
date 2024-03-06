@@ -87,7 +87,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
               itemCount: 10,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                padding:  EdgeInsets.symmetric(vertical: 0.7.h),
                 child: Column(
                   children: [
                     GestureDetector(
@@ -99,13 +99,13 @@ class _MessagesScreenState extends State<MessagesScreen> {
                         //height: 6.h,
                         //width: 95.w,
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                          padding:  EdgeInsets.symmetric(horizontal: 5.w),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
                                 //height: 6.h,
-                                width: 75.w,
+                                //width: 75.w,
                                 child: Row(
                                   children: [
                                     Container(
@@ -154,9 +154,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding:  EdgeInsets.symmetric(horizontal: 5.w),
                       child: Divider(
-                        thickness: 2,
+                        thickness: 1.7,
                         //color: Colors.black,
                       ),
                     )

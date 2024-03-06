@@ -70,8 +70,8 @@ class _SearchScreenState extends State<SearchScreen> {
                              decoration: BoxDecoration(color: index == 1?Color(0xff54F67E):Colors.white,borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 6),
-                                child: Text('All',style: TextStyle(color: index == 1?Colors.white: Colors.grey,fontSize: 12)),
+                                padding:  EdgeInsets.symmetric(horizontal: 3.w,vertical: 0.75.h),
+                                child: Text('All',style: TextStyle(color: index == 1?Colors.white: Colors.grey,fontSize: 12.sp)),
                               ),
                             ),
                           ),
@@ -88,8 +88,8 @@ class _SearchScreenState extends State<SearchScreen> {
                              decoration: BoxDecoration(color:index == 2?Color(0xff54F67E): Colors.white,borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 6),
-                                child: Text('Research',style: TextStyle(color:index == 2?Colors.white: Colors.grey,fontSize: 12)),
+                                padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 0.75.h),
+                                child: Text('Research',style: TextStyle(color:index == 2?Colors.white: Colors.grey,fontSize: 12.sp)),
                               ),
                             ),
                           ),
@@ -106,8 +106,8 @@ class _SearchScreenState extends State<SearchScreen> {
                              decoration: BoxDecoration(color:index == 3?Color(0xff54F67E): Colors.white,borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 6),
-                                child: Text('Person',style: TextStyle(color:index == 3?Colors.white: Colors.grey,fontSize: 12)),
+                                padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 0.75.h),
+                                child: Text('Person',style: TextStyle(color:index == 3?Colors.white: Colors.grey,fontSize: 12.sp)),
                               ),
                             ),
                           ),
@@ -124,8 +124,8 @@ class _SearchScreenState extends State<SearchScreen> {
                              decoration: BoxDecoration(color:index == 4?Color(0xff54F67E): Colors.white,borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 6),
-                                child: Text('Tags',style: TextStyle(color:index == 4?Colors.white: Colors.grey,fontSize: 12)),
+                                padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 0.75.h),
+                                child: Text('Tags',style: TextStyle(color:index == 4?Colors.white: Colors.grey,fontSize: 12.sp)),
                               ),
                             ),
                           ),

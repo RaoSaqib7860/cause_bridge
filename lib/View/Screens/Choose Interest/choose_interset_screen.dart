@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../Custom Widget/click_button.dart';
 import '../Bottom Sheet/bottom_sheet.dart';
 import '../Settings/setting_screen.dart';
+import 'package:get/get.dart';
 
 class ChooseInterestScreen extends StatefulWidget {
   const ChooseInterestScreen({Key? key}) : super(key: key);
@@ -23,6 +24,8 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
     'Life Science',
     'Social Science',
   ];
+
+  List list = [];
   String? selected_interest;
   @override
   Widget build(BuildContext context) {
@@ -69,11 +72,17 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
                 child: Column(
                     children: list_of_interest.map((e) {
                   return InkWell(
-                    child: selected_interest == e
+                    child: list.contains(list_of_interest.indexOf(e))
                         ? selected_checkboxContainer(text: '$e')
                         : checkboxContainer(text: '$e'),
                     onTap: () {
-                      selected_interest = e;
+                      //selected_interest = e;
+                      if(list.contains(list_of_interest.indexOf(e))){
+                        list.remove(list_of_interest.indexOf(e));
+                      }
+                      else{
+                        list.add(list_of_interest.indexOf(e));
+                      }
                       setState(() {});
                     },
                   );
@@ -92,12 +101,16 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
           padding:  EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 9.w),
           child: GestureDetector(
             onTap: () {
-              if (selected_interest != null) {
+              if (list.length > 2) {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => BottomSheetScreen(),
                     ));
+              }
+              else{
+                //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('At least 3 or more')));
+                Get.snackbar('Alert !', 'Choose At least 3 or more');
               }
             },
             child: Container(

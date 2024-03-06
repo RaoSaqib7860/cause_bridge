@@ -78,10 +78,10 @@ class _CustomTextFieldsState extends State<CustomTextFields> {
             hintText: widget.hintText,
             suffixIcon: widget.suffixIcon,
             prefixIcon: widget.prefixIcon,
-            labelStyle: TextStyle(fontSize: 13, color: Colors.green),
+            labelStyle: TextStyle(fontSize: 12.sp, color: Colors.green),
             hintStyle: TextStyle(
               color: Colors.green,
-              fontSize: 13,
+              fontSize: 13.sp,
             )),
       ),
     );

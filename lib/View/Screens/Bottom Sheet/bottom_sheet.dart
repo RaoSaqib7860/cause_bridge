@@ -6,6 +6,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../Feeds Screen/new_feed_screen.dart';
 import '../Messages/mmessage_screen.dart';
 import '../Post Detail/create_new_post_screen.dart';
+import '../Post Detail/post_detail_screen.dart';
 import '../Profile Screen/profile_detail_screen.dart';
 import '../Search/search_main_screen.dart';
 import 'bottom_selector_icon.dart';
@@ -30,7 +31,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
     persistentcontroller = PersistentTabController(initialIndex: widget.index!);
     super.initState();
   }
-
+  //PostDetailScreen? postDetailScreen;
   bool? reel_active = false;
   int _currentIndex = 0;
   @override
@@ -80,6 +81,11 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
               if(v == 2){
                 Get.offAll(()=>CreateNewPostScreen(),);
               }
+              // if(postDetailScreen == PostDetailScreen()){
+              //   setState(() {
+              //     persistentcontroller!.index = 0;
+              //   });
+              // }
               persistentcontroller!.index = v;
               setState(() {});
             },
@@ -211,10 +217,10 @@ class CustomNavBarWidget extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(top: 25, left: 4),
+              padding:  EdgeInsets.only(top: 3.3.h, left: 1.4.w),
               child: SizedBox(
-                width: 16,
-                height: 2.5,
+                width: 4.5.w,
+                height: 0.3.h,
                 child: Container(color: Colors.white),
               ),
             ),

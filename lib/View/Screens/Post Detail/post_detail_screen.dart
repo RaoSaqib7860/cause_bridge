@@ -16,6 +16,7 @@ class PostDetailScreen extends StatefulWidget {
 
 class _PostDetailScreenState extends State<PostDetailScreen> {
   bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +47,8 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                           'Back',
                           style: TextStyle(
                             color: Color(0xff4AB866),
-                            fontSize: 13.sp
+                            fontSize: 12.sp,
+                             // fontWeight: FontWeight.bold
                           ),
                         )
                       ],
@@ -56,23 +58,19 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                         Column(
                           children: [
                             Container(
-                              height: 2.5.h,
-                              width: 5.w,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Colors.green.shade50
                               ),
-                              child: Center(
-                                child: Icon(Icons.arrow_back_ios_new_outlined,size: 1.5.h,color: Color(0xff4AB866),),
-                              ),
+                              child: Icon(Icons.arrow_back_ios_new_outlined,size: 1.5.h,color: Color(0xff4AB866),),
                             ),
-                            SizedBox(height: 0.5.h,),
+                            SizedBox(height: 1.h,),
                             Text(
-                              'Previous',
+                              'Next',
                               style: TextStyle(
                                   color: Color(0xff4AB866),
                                   fontSize: 11.sp,
-                                  fontWeight: FontWeight.bold
+                                 // fontWeight: FontWeight.bold
                               ),
                             )
                           ],
@@ -81,23 +79,21 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                         Column(
                           children: [
                             Container(
-                              height: 2.5.h,
-                              width: 5.w,
+                              // height: 2.5.h,
+                              // width: 5.w,
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Colors.green.shade50
                               ),
-                              child: Center(
-                                child: Icon(Icons.arrow_forward_ios,size: 1.5.h,color: Color(0xff4AB866),),
-                              ),
+                              child: Icon(Icons.arrow_forward_ios,size: 1.5.h,color: Color(0xff4AB866),),
                             ),
-                            SizedBox(height: 0.5.h,),
+                            SizedBox(height: 1.h,),
                             Text(
-                              'Next',
+                              'Previous',
                               style: TextStyle(
                                   color: Color(0xff4AB866),
                                   fontSize: 11.sp,
-                                fontWeight: FontWeight.bold
+                                //fontWeight: FontWeight.bold
                               ),
                             )
                           ],
@@ -131,7 +127,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                             fontFamily: 'AlfaSlabOne',
                           ),
                         ),
-
+                        SizedBox(height: 0.5.h,),
                         RichText(
                           text: TextSpan(
                             children: [

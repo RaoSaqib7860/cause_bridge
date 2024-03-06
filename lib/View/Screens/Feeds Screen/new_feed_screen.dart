@@ -13,7 +13,7 @@ import '../Settings/setting_screen.dart';
 import 'package:get/get.dart';
 
 class NewFeedScreen extends StatefulWidget {
-  const NewFeedScreen({Key? key}) : super(key: key);
+   NewFeedScreen({Key? key}) : super(key: key);
 
   @override
   State<NewFeedScreen> createState() => _NewFeedScreenState();
@@ -31,7 +31,7 @@ class _NewFeedScreenState extends State<NewFeedScreen>
       vsync: this,
       duration: const Duration(seconds: 5),
     );
-    controller.repeat(reverse: false,min: 0,max: 100,);
+    controller.repeat(reverse: false);
     super.initState();
   }
 
@@ -40,6 +40,8 @@ class _NewFeedScreenState extends State<NewFeedScreen>
     controller.dispose();
     super.dispose();
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +63,7 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                     children: [
                       GestureDetector(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => SettingScreen(),
-                            //     ));
+
                           },
                           child: SvgPicture.asset(
                             'assets/svgs/camm.svg',
@@ -205,6 +203,13 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                         commentOnTap: () {
                           Get.offAll(()=>CommentScreen());
                         },
+                        profileImage: 'assets/asset/man.png',
+                        profileName: 'Benjamin Dangais',
+                        profileSubTitle: 'United State',
+                        title: 'Why Volcano Explodes ?',
+                        description: 'As magma rises and pressure is released, gas bubbles (mainly of water vapor and carbon dioxide) form and expand rapidly, causing explosions....',
+                        commentText: '10',
+                        likeText: '122',
                       );
                     },
                   ),
@@ -216,11 +221,13 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                 left: 5.w,
                 child: GestureDetector(
                   onTap: () {
+
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => ProfileScreen(),
                         ));
+
                   },
                   child: Container(
                     //height: 7.h,
@@ -239,7 +246,8 @@ class _NewFeedScreenState extends State<NewFeedScreen>
                               offset: Offset(1, 1),
                               blurRadius: 1,
                               spreadRadius: 0.5)
-                        ]),
+                        ]
+                    ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 1.5.h),
                       child: Column(

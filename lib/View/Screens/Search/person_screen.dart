@@ -16,18 +16,18 @@ class _PersonScreenState extends State<PersonScreen> {
         itemCount: 10,
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4.0),
+          padding:  EdgeInsets.symmetric(vertical: 0.5.h),
           child: Container(
-          height: 6.h,
+          //height: 6.h,
           //width: 95.w,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14.0),
+            padding:  EdgeInsets.symmetric(horizontal: 4.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 6.h,
-                  width: 80.w,
+                  // height: 6.h,
+                  // width: 80.w,
                   child: Row(
                     children: [
                       Container(
@@ -45,7 +45,7 @@ class _PersonScreenState extends State<PersonScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height:1.h,),
+                          SizedBox(height:0.2.h,),
                           Text(
                             'Chineze_afamefuna',
                             style: TextStyle(
