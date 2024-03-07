@@ -18,6 +18,8 @@ class MessagesScreen extends StatefulWidget {
 
 class _MessagesScreenState extends State<MessagesScreen> {
   int? index = 0;
+  TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -34,7 +36,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                 children: [
                   SizedBox(height: 10.h,),
                    Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: EdgeInsets.symmetric(horizontal: 4.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -54,6 +56,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                       //border: Border.all(width: 0,color: Colors.white)
                     ),
                     child: TextFormField(
+                      controller: searchController,
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.search,color: Colors.black87.withAlpha(150),size: 5.w,),
@@ -65,7 +68,11 @@ class _MessagesScreenState extends State<MessagesScreen> {
                               color: Colors.grey,
                               fontSize: 13.sp
                           ),
-                          suffixIcon: Icon(Icons.close,color: Colors.grey,size: 4.w,)
+                          suffixIcon: GestureDetector(
+                              onTap: () {
+                                searchController.clear();
+                              },
+                              child: Icon(Icons.close,color: Colors.grey,size: 4.w,))
                       ),
                     ),
                   ),

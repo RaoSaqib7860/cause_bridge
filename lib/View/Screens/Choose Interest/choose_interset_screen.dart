@@ -109,7 +109,6 @@ class _ChooseInterestScreenState extends State<ChooseInterestScreen> {
                     ));
               }
               else{
-                //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('At least 3 or more')));
                 Get.snackbar('Alert !', 'Choose At least 3 or more');
               }
             },

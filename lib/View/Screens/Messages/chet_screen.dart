@@ -45,7 +45,7 @@ class _ChetScreenState extends State<ChetScreen> {
                             fontWeight: FontWeight.bold
                         ),
                       ),
-                      Icon(Icons.more_vert,color: Colors.white,),
+                      Icon(Icons.more_vert,color: Colors.white,size: 3.h,),
                     ],
                   ),
                 ),
@@ -133,21 +133,17 @@ class _ChetScreenState extends State<ChetScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start  ,
                                     children: [
                                       Container(
-                                        height: 5.h,
-                                        //width: 20.w,
                                         decoration: BoxDecoration(
                                           color: Color(0xffF4F4F4),
                                           borderRadius: BorderRadius.circular(10),
                                         ),
-                                        child: Center(
-                                          child: Padding(
-                                            padding:  EdgeInsets.symmetric(horizontal: 2.w),
-                                            child: Text(
-                                              'Hi, How’s going on?',
-                                              style: TextStyle(
-                                                fontSize: 11.sp,
-                                                color: Colors.black
-                                              ),
+                                        child: Padding(
+                                          padding:  EdgeInsets.symmetric(horizontal: 2.w,vertical: 1.7.h),
+                                          child: Text(
+                                            'Hi, How’s going on?',
+                                            style: TextStyle(
+                                              fontSize: 11.sp,
+                                              color: Colors.black
                                             ),
                                           ),
                                         ),

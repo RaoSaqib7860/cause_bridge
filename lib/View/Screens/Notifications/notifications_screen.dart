@@ -59,7 +59,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                         itemCount: 10,
                         padding: EdgeInsets.zero,
                         itemBuilder: (context, index) => Padding(
-                          padding:  EdgeInsets.symmetric(vertical: 4.0,horizontal: 1.w),
+                          padding:  EdgeInsets.symmetric(vertical: 0.5.h,horizontal: 1.w),
                           child: Column(
                             children: [
                               Container(

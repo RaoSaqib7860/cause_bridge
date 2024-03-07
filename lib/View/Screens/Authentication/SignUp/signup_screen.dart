@@ -128,12 +128,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   )),
               TextSpan(
                 recognizer: new TapGestureRecognizer()
-                  ..onTap = () => {
+                  ..onTap = () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => LoginScreen()),
-                        )
+                        );
                       },
                 text: 'Log In',
                 style: TextStyle(

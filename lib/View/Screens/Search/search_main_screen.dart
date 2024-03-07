@@ -15,6 +15,8 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   int? index = 3;
+  TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -26,7 +28,7 @@ class _SearchScreenState extends State<SearchScreen> {
             Container(
               height: 24.h,
               width: 100.w,
-              color: Colors.green,
+              color: Color(0xff4AB866),
               child: Column(
                 children: [
                   SizedBox(height: 10.h,),
@@ -39,6 +41,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       //border: Border.all(width: 0,color: Colors.white)
                     ),
                     child: TextFormField(
+                      controller: searchController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                           prefixIcon: Icon(Icons.search,color: Colors.black87.withAlpha(150),size: 5.w,),
@@ -50,7 +53,11 @@ class _SearchScreenState extends State<SearchScreen> {
                               color: Colors.grey,
                               fontSize: 13.sp
                           ),
-                          suffixIcon: Icon(Icons.close,color: Colors.grey,size: 5.w,)
+                          suffixIcon: GestureDetector(
+                              onTap: () {
+                                searchController.clear();
+                              },
+                              child: Icon(Icons.close,color: Colors.grey,size: 5.w,))
                       ),
                     ),
                   ),

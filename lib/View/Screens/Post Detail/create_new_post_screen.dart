@@ -170,12 +170,12 @@ class _CreateNewPostScreenState extends State<CreateNewPostScreen> {
                             ),
                             child: Center(
                               child: TextField(
-                                keyboardType: TextInputType.multiline,
+                                //keyboardType: TextInputType.multiline,
                                 // minLines: 1,
-                                textAlign: TextAlign.left,
-                                maxLines: null,
-                                expands: true,
-                                textAlignVertical: TextAlignVertical.top,
+                               // textAlign: TextAlign.left,
+                                //maxLines: null,
+                                //expands: true,
+                                //textAlignVertical: TextAlignVertical.top,
                                 style: TextStyle(fontSize: 12.sp),
                                 //controller: desController,
                                 decoration: InputDecoration(
@@ -186,7 +186,7 @@ class _CreateNewPostScreenState extends State<CreateNewPostScreen> {
                                       fontSize: 12.sp,
                                       color: Color(0xffBFBFBF)
                                   ),
-                                  contentPadding: EdgeInsets.only(top: 1.h,left: 4.w,right: 2.w),
+                                  contentPadding: EdgeInsets.only(left: 4.w,right: 2.w),
                                 ),
                               ),
                             ),

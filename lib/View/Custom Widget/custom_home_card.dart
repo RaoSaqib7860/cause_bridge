@@ -7,6 +7,9 @@ class CustomHomeCard extends StatefulWidget {
   Function()? profileOnTap;
   Function()? cardOnTap;
   Function()? commentOnTap;
+  Function()? likeOnTap;
+  Function()? sendOnTap;
+  Function()? subOnTap;
   String? profileImage;
   String? profileName;
   String? profileSubTitle;
@@ -228,9 +231,12 @@ class _CustomHomeCardState extends State<CustomHomeCard> {
                                   SizedBox(
                                     width: 2.w,
                                   ),
-                                  SvgPicture.asset(
-                                    'assets/svgs/like.svg',
-                                    height: 3.h,
+                                  GestureDetector(
+                                    onTap: widget.likeOnTap,
+                                    child: SvgPicture.asset(
+                                      'assets/svgs/like.svg',
+                                      height: 3.h,
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 1.w,
@@ -248,16 +254,22 @@ class _CustomHomeCardState extends State<CustomHomeCard> {
                               ),
                               Row(
                                 children: [
-                                  SvgPicture.asset(
-                                    'assets/svgs/Send.svg',
-                                    height: 2.3.h,
+                                  GestureDetector(
+                                    onTap: widget.sendOnTap,
+                                    child: SvgPicture.asset(
+                                      'assets/svgs/Send.svg',
+                                      height: 2.3.h,
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 3.w,
                                   ),
-                                  SvgPicture.asset(
-                                    'assets/svgs/Sub.svg',
-                                    height: 2.3.h,
+                                  GestureDetector(
+                                    onTap: widget.subOnTap,
+                                    child: SvgPicture.asset(
+                                      'assets/svgs/Sub.svg',
+                                      height: 2.3.h,
+                                    ),
                                   ),
                                 ],
                               )

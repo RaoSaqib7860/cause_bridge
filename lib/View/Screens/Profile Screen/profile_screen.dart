@@ -13,7 +13,12 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
+TextEditingController nameController = TextEditingController();
+TextEditingController emailController = TextEditingController();
+TextEditingController numberController = TextEditingController();
+TextEditingController dateController = TextEditingController();
+TextEditingController monthController = TextEditingController();
+TextEditingController yearController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +71,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ProfileTextField(text: 'Name', hintText: 'Name'),
-                    ProfileTextField(text: 'Email', hintText: 'Email'),
+                    ProfileTextField(text: 'Name', hintText: 'Name',controller: nameController),
+                    ProfileTextField(text: 'Email', hintText: 'Email',controller: emailController),
                     CustomDropDown(text: 'Country',hintText: 'Select Option'),
-                    ProfileTextField(text: 'Number',hintText: 'Number'),
+                    ProfileTextField(text: 'Number',hintText: 'Number',controller: numberController),
                     Text(
                       'Date of Birth',
                       style: TextStyle(
@@ -97,6 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Container(
                                 width: 15.w,
                                 child: TextField(
+                                  controller: dateController,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
                                       hintText: 'Date',
@@ -114,6 +120,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Container(
                                 width: 15.w,
                                 child: TextField(
+                                  controller: monthController,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
                                       hintText: 'Month',
@@ -131,6 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Container(
                                 width: 15.w,
                                 child: TextField(
+                                  controller: yearController,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
                                       hintText: 'Year',
@@ -263,7 +271,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget ProfileTextField({
     String? text,
     String? hintText,
-
+    TextEditingController? controller
 }){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -287,6 +295,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ]
           ),
           child: TextFormField(
+            controller: controller,
             style: TextStyle(
               color: Color(0xffB4B4B4),
                 fontSize: 15.sp

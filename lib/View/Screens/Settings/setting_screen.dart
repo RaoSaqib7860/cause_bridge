@@ -85,104 +85,104 @@ class _SettingScreenState extends State<SettingScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.only(topRight: Radius.circular(10), topLeft: Radius.circular(10))
                   ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.w),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 3.h,),
-                        profileContainer(image: 'assets/svgs/edits.svg',text: 'Edit Profile'),
-                        profileContainer(
-                            image: 'assets/svgs/language.svg',
-                            text: 'Language',
-                          widget: Text(
-                              '10+',
-                          style: TextStyle(
-                            color: Color(0xff4AB866)
-                          ),
-                          )
-                        ),
-                        profileContainer(
-                            image: 'assets/svgs/follower.svg',
-                            text: 'Follower',
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 4.w),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 3.h,),
+                          profileContainer(image: 'assets/svgs/edits.svg',text: 'Edit Profile'),
+                          profileContainer(
+                              image: 'assets/svgs/language.svg',
+                              text: 'Language',
                             widget: Text(
-                              '1000+',
-                              style: TextStyle(
-                                  color: Color(0xff4AB866)
-                              ),
-                            )
-                        ),
-                        profileContainer(image: 'assets/svgs/save.svg',text: 'Saved Post'),
-                        Text(
-                          'Preferences',
-                          style: TextStyle(
-                              color: Colors.black,
-                            fontSize: 17.sp,
-                            fontWeight: FontWeight.bold
-                          ),
-                        ),
-                        SizedBox(height: 2.h,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                SvgPicture.asset('assets/svgs/noti.svg',width: 4.w,),
-                                SizedBox(width: 2.w,),
-                                Text(
-                                  'Notifications',
-                                  style: TextStyle(
-                                      fontSize: 15.sp,
-                                      color: Color(0xff606060)
-                                  ),
-                                )
-                              ],
+                                '10+',
+                            style: TextStyle(
+                              color: Color(0xff4AB866)
                             ),
-                            AdvancedSwitch(
-                              controller: _controller,
-                              activeColor: Colors.green,
-                              //Colors.green,
-                              inactiveColor: Colors.grey,
-                              width: 10.w,
-                              height: 2.8.h,
-                              enabled: true,
-                              disabledOpacity: 0.5,
-
                             )
-                          ],
-                        ),
-                        SizedBox(height: 3.h,),
-                        profileContainer(image: 'assets/svgs/acc.svg',text: 'Account & Privacy'),
-                        profileContainer(
-                            image: 'assets/svgs/theme.svg',
-                            text: 'Theme',
-                            widget: Text(
-                              'Dark, Light, Use System',
-                              style: TextStyle(
-                                  color: Color(0xff4AB866)
-                              ),
-                            )
-                        ),
-                        profileContainer(image: 'assets/svgs/help.svg',text: 'Help'),
-                        SizedBox(height: 2.h,),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Get.offAll(()=>LoginScreen());
-                              },
-                              child: Container(
-                                height: 5.h,
-                                width: 33.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  borderRadius: BorderRadius.circular(5),
+                          ),
+                          profileContainer(
+                              image: 'assets/svgs/follower.svg',
+                              text: 'Follower',
+                              widget: Text(
+                                '1000+',
+                                style: TextStyle(
+                                    color: Color(0xff4AB866)
                                 ),
-                                child: Center(
+                              )
+                          ),
+                          profileContainer(image: 'assets/svgs/save.svg',text: 'Saved Post'),
+                          Text(
+                            'Preferences',
+                            style: TextStyle(
+                                color: Colors.black,
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                          SizedBox(height: 2.h,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  SvgPicture.asset('assets/svgs/noti.svg',width: 4.w,),
+                                  SizedBox(width: 2.w,),
+                                  Text(
+                                    'Notifications',
+                                    style: TextStyle(
+                                        fontSize: 15.sp,
+                                        color: Color(0xff606060)
+                                    ),
+                                  )
+                                ],
+                              ),
+                              AdvancedSwitch(
+                                controller: _controller,
+                                activeColor: Colors.green,
+                                //Colors.green,
+                                inactiveColor: Colors.grey,
+                                width: 10.w,
+                                height: 2.8.h,
+                                enabled: true,
+                                disabledOpacity: 0.5,
+
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 3.h,),
+                          profileContainer(image: 'assets/svgs/acc.svg',text: 'Account & Privacy'),
+                          profileContainer(
+                              image: 'assets/svgs/theme.svg',
+                              text: 'Theme',
+                              widget: Text(
+                                'Dark, Light, Use System',
+                                style: TextStyle(
+                                    color: Color(0xff4AB866)
+                                ),
+                              )
+                          ),
+                          profileContainer(image: 'assets/svgs/help.svg',text: 'Help'),
+                          SizedBox(height: 2.h,),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Get.offAll(()=>LoginScreen());
+                                },
+                                child: Container(
+                                  // height: 5.h,
+                                  // width: 33.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
                                   child: Padding(
-                                    padding:  EdgeInsets.symmetric(horizontal: 2.w),
+                                    padding:  EdgeInsets.only(left: 2.w,top: 0.8.h,bottom: 0.8.h,right: 4.w),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset('assets/svgs/logouts.svg',height: 3.h,),
@@ -198,30 +198,31 @@ class _SettingScreenState extends State<SettingScreen> {
                                     ),
                                   ),
                                 ),
-                              ),
-                            )
-                          ],
-                        )
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //   children: [
-                        //     Row(
-                        //       children: [
-                        //         SvgPicture.asset('assets/svgs/edits.svg',width: 4.w,),
-                        //         SizedBox(width: 2.w,),
-                        //         Text(
-                        //           'Edit Profile',
-                        //           style: TextStyle(
-                        //             fontSize: 15.sp,
-                        //             color: Color(0xff606060)
-                        //           ),
-                        //         )
-                        //       ],
-                        //     ),
-                        //     Icon(Icons.arrow_forward_ios_rounded,size: 4.w,color: Color(0xff606060)),
-                        //   ],
-                        // )
-                      ],
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 2.h,)
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //   children: [
+                          //     Row(
+                          //       children: [
+                          //         SvgPicture.asset('assets/svgs/edits.svg',width: 4.w,),
+                          //         SizedBox(width: 2.w,),
+                          //         Text(
+                          //           'Edit Profile',
+                          //           style: TextStyle(
+                          //             fontSize: 15.sp,
+                          //             color: Color(0xff606060)
+                          //           ),
+                          //         )
+                          //       ],
+                          //     ),
+                          //     Icon(Icons.arrow_forward_ios_rounded,size: 4.w,color: Color(0xff606060)),
+                          //   ],
+                          // )
+                        ],
+                      ),
                     ),
                   ),
                 )
